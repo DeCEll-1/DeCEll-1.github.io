@@ -18,169 +18,182 @@
 </head>
 
 <body>
-
-    <div class="container">
-
-        <div class="t">
-
-        </div>
-
-
-        <div class="modal fade" id="demo">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Başlık</h4>
-                    </div>
-                    <div class="modal-body">
-                        <br> package data.shipsystems.scripts;
-                        <br>
-                        <br> import com.fs.starfarer.api.Global;
-                        <br> import com.fs.starfarer.api.combat.*;
-                        <br> import com.fs.starfarer.api.graphics.SpriteAPI;
-                        <br> import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
-                        <br> import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
-                        <br>
-                        <br> import com.fs.starfarer.api.util.IntervalUtil;
-                        <br> import com.fs.starfarer.api.util.Misc;
-                        <br> import org.lazywizard.lazylib.combat.AIUtils;
-                        <br> import org.lwjgl.util.vector.Vector2f;
-                        <br>
-                        <br> import java.awt.*;
-                        <br>
-                        <br> public class DEA_FluxConsumer extends BaseShipSystemScript {
-                        <br>
-                        <br> public static float FluxRatio = 0.5f;
-                        <br>
-                        <br> public static float speed;
-                        <br>
-                        <br> public static Color ShipColor;
-                        <br>
-                        <br> //from tomato
-                        <br> private final IntervalUtil interval = new IntervalUtil(0.5f, 0.5f); // chooses a random
-                        interval between 0.1
-                        and 0.5 seconds
-                        <br>
-                        <br> public void apply(MutableShipStatsAPI stats, String id, ShipSystemStatsScript.State state,
-                        float EffectLevel) {
-                        <br>
-                        <br> ShipAPI ship = null;
-                        <br>
-                        <br> boolean player = false;
-                        <br>
-                        <br> if (stats.getEntity() instanceof ShipAPI) {
-                        <br> ship = (ShipAPI) stats.getEntity();
-                        <br> // if (ship == Global.getCombatEngine().getPlayerShip()) {
-                        <br> // player = true;
-                        <br> // Global.getCombatEngine().maintainStatusForPlayerShip(
-                        <br> // id,
-                        <br> // "graphics/icons/hullmods/Test_Image.png",
-                        <br> // "Debug number:",
-                        <br> // Float.toString(speed),
-                        <br> // false
-                        <br> // );
-                        <br> // }
-                        <br>} else {
-                        <br> return;
-                        <br> }
-                        <br>
-                        <br> if (state == State.IN) {
-                        <br> speed = (ship.getFluxTracker().getCurrFlux() - ship.getFluxTracker().getHardFlux()) *
-                        Global.getCombatEngine().getElapsedInLastFrame() * 2;
-                        <br> ship.getSpriteAPI().getColor();
-                        <br> }
-                        <br>
-                        <br> if (state == State.ACTIVE) {
-                        <br> FluxTrackerAPI shipFluxTracker = ship.getFluxTracker();
-                        <br> //
-                        <br> // float shipSoftFlux = shipFluxTracker.getCurrFlux() - shipFluxTracker.getHardFlux();
-                        <br> //
-                        <br> // shipFluxTracker.setCurrFlux(0f);
-                        <br> //
-                        <br> // shipFluxTracker.increaseFlux(shipSoftFlux * FluxRatio, true);
-                        <br>
-                        <br> //shipFluxTracker.getCurrFlux()-shipFluxTracker.getHardFlux();//soft flux
-                        <br>
-                        <br>
-                        <br> //tomatos code // thanks to him for showing me the getElapsedInLastFrame its epic :alpha:
-                        <br> shipFluxTracker.decreaseFlux(speed);
-                        <br> shipFluxTracker.increaseFlux(speed * FluxRatio, true);
-                        <br>
-                        <br>
-                        <br> //from tomato
-                        <br> float amount = Global.getCombatEngine().getElapsedInLastFrame();
-                        <br> interval.advance(amount);
-                        <br> if (interval.intervalElapsed()) {
-                        <br> Global.getCombatEngine().addSmokeParticle(ship.getLocation(), ship.getVelocity(),
-                        ship.getSpriteAPI().getHeight(), 255f, 3, new Color(180, 100, 255, 220));
-                        <br> }
-                        <br>
-                        <br> ship.getSpriteAPI().setColor(new Color(148, 111, 183, 120));
-                        <br>
-                        <br>
-                        <br> }
-                        <br>
-                        <br>
-                        <br> }
-                        <br>
-                        <br>
-                        <br> //this doesnt fucking works and gives null error
-                        <br> // public void unapply(MutableShipStatsAPI stats, String id) {
-                        <br> //
-                        <br> // ShipAPI ship = null;
-                        <br> // boolean player = false;
-                        <br> // if (stats.getEntity() instanceof ShipAPI) {
-                        <br> // ship = (ShipAPI) stats.getEntity();
-                        <br> // if (ship == Global.getCombatEngine().getPlayerShip()) {
-                        <br> // player = true;
-                        <br> // }
-                        <br> // } else {
-                        <br> // return;
-                        <br> // }
-                        <br> //
-                        <br> // ship.getSpriteAPI().setColor(ShipColor);
-                        <br> //
-                        <br> // }
-                        <br>
-                        <br> //from tomato for making it only useable while phasing
-                        <br> @Override
-                        <br> public boolean isUsable(ShipSystemAPI system, ShipAPI ship) {
-                        <br>
-                        <br> if (ship != null && ship.isAlive() && ship.isPhased() &&
-                        (ship.getFluxTracker().getCurrFlux() -
-                        ship.getFluxTracker().getHardFlux()) != 0) {
-                        <br> return true;
-                        <br> }
-                        <br> return false;
-                        <br> // return ship != null && ship.isAlive() && ship.isPhased();
-                        <br>}
-                        <br>
-                        <br> @Override
-                        <br> public String getInfoText(ShipSystemAPI system, ShipAPI ship) {
-                        <br> //from mine strike stats
-                        <br> if ((ship.getFluxTracker().getCurrFlux() - ship.getFluxTracker().getHardFlux()) == 0) {
-                        <br> return "NO SOFT FLUX";
-                        <br> } else if (!ship.isPhased()) {
-                        <br> return "NOT PHASED";
-                        <br> } else if (system.getState() != ShipSystemAPI.SystemState.IDLE) {
-                        <br> return "NOT READY";
-                        <br> } else {
-                        <br> return "READY";
-                        <br> }
-                        <br> }
-                        <br>
-                        <br> }
-                        <br>
-                        <br>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="../ShipSystems/Downloads/DEA_FluxConsumer.java" download
-                            class="btn btn-primary">Save</a>
-                        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
+    <div class="modal fade" id="script">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Başlık</h4>
+                </div>
+                <div class="modal-body">
+                    <br> package data.shipsystems.scripts;
+                    <br>
+                    <br> import com.fs.starfarer.api.Global;
+                    <br> import com.fs.starfarer.api.combat.*;
+                    <br> import com.fs.starfarer.api.graphics.SpriteAPI;
+                    <br> import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+                    <br> import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
+                    <br>
+                    <br> import com.fs.starfarer.api.util.IntervalUtil;
+                    <br> import com.fs.starfarer.api.util.Misc;
+                    <br> import org.lazywizard.lazylib.combat.AIUtils;
+                    <br> import org.lwjgl.util.vector.Vector2f;
+                    <br>
+                    <br> import java.awt.*;
+                    <br>
+                    <br> public class DEA_FluxConsumer extends BaseShipSystemScript {
+                    <br>
+                    <br> public static float FluxRatio = 0.5f;
+                    <br>
+                    <br> public static float speed;
+                    <br>
+                    <br> public static Color ShipColor;
+                    <br>
+                    <br> //from tomato
+                    <br> private final IntervalUtil interval = new IntervalUtil(0.5f, 0.5f); // chooses a random
+                    interval between 0.1
+                    and 0.5 seconds
+                    <br>
+                    <br> public void apply(MutableShipStatsAPI stats, String id, ShipSystemStatsScript.State state,
+                    float EffectLevel) {
+                    <br>
+                    <br> ShipAPI ship = null;
+                    <br>
+                    <br> boolean player = false;
+                    <br>
+                    <br> if (stats.getEntity() instanceof ShipAPI) {
+                    <br> ship = (ShipAPI) stats.getEntity();
+                    <br> // if (ship == Global.getCombatEngine().getPlayerShip()) {
+                    <br> // player = true;
+                    <br> // Global.getCombatEngine().maintainStatusForPlayerShip(
+                    <br> // id,
+                    <br> // "graphics/icons/hullmods/Test_Image.png",
+                    <br> // "Debug number:",
+                    <br> // Float.toString(speed),
+                    <br> // false
+                    <br> // );
+                    <br> // }
+                    <br>} else {
+                    <br> return;
+                    <br> }
+                    <br>
+                    <br> if (state == State.IN) {
+                    <br> speed = (ship.getFluxTracker().getCurrFlux() - ship.getFluxTracker().getHardFlux()) *
+                    Global.getCombatEngine().getElapsedInLastFrame() * 2;
+                    <br> ship.getSpriteAPI().getColor();
+                    <br> }
+                    <br>
+                    <br> if (state == State.ACTIVE) {
+                    <br> FluxTrackerAPI shipFluxTracker = ship.getFluxTracker();
+                    <br> //
+                    <br> // float shipSoftFlux = shipFluxTracker.getCurrFlux() - shipFluxTracker.getHardFlux();
+                    <br> //
+                    <br> // shipFluxTracker.setCurrFlux(0f);
+                    <br> //
+                    <br> // shipFluxTracker.increaseFlux(shipSoftFlux * FluxRatio, true);
+                    <br>
+                    <br> //shipFluxTracker.getCurrFlux()-shipFluxTracker.getHardFlux();//soft flux
+                    <br>
+                    <br>
+                    <br> //tomatos code // thanks to him for showing me the getElapsedInLastFrame its epic :alpha:
+                    <br> shipFluxTracker.decreaseFlux(speed);
+                    <br> shipFluxTracker.increaseFlux(speed * FluxRatio, true);
+                    <br>
+                    <br>
+                    <br> //from tomato
+                    <br> float amount = Global.getCombatEngine().getElapsedInLastFrame();
+                    <br> interval.advance(amount);
+                    <br> if (interval.intervalElapsed()) {
+                    <br> Global.getCombatEngine().addSmokeParticle(ship.getLocation(), ship.getVelocity(),
+                    ship.getSpriteAPI().getHeight(), 255f, 3, new Color(180, 100, 255, 220));
+                    <br> }
+                    <br>
+                    <br> ship.getSpriteAPI().setColor(new Color(148, 111, 183, 120));
+                    <br>
+                    <br>
+                    <br> }
+                    <br>
+                    <br>
+                    <br> }
+                    <br>
+                    <br>
+                    <br> //this doesnt fucking works and gives null error
+                    <br> // public void unapply(MutableShipStatsAPI stats, String id) {
+                    <br> //
+                    <br> // ShipAPI ship = null;
+                    <br> // boolean player = false;
+                    <br> // if (stats.getEntity() instanceof ShipAPI) {
+                    <br> // ship = (ShipAPI) stats.getEntity();
+                    <br> // if (ship == Global.getCombatEngine().getPlayerShip()) {
+                    <br> // player = true;
+                    <br> // }
+                    <br> // } else {
+                    <br> // return;
+                    <br> // }
+                    <br> //
+                    <br> // ship.getSpriteAPI().setColor(ShipColor);
+                    <br> //
+                    <br> // }
+                    <br>
+                    <br> //from tomato for making it only useable while phasing
+                    <br> @Override
+                    <br> public boolean isUsable(ShipSystemAPI system, ShipAPI ship) {
+                    <br>
+                    <br> if (ship != null && ship.isAlive() && ship.isPhased() &&
+                    (ship.getFluxTracker().getCurrFlux() -
+                    ship.getFluxTracker().getHardFlux()) != 0) {
+                    <br> return true;
+                    <br> }
+                    <br> return false;
+                    <br> // return ship != null && ship.isAlive() && ship.isPhased();
+                    <br>}
+                    <br>
+                    <br> @Override
+                    <br> public String getInfoText(ShipSystemAPI system, ShipAPI ship) {
+                    <br> //from mine strike stats
+                    <br> if ((ship.getFluxTracker().getCurrFlux() - ship.getFluxTracker().getHardFlux()) == 0) {
+                    <br> return "NO SOFT FLUX";
+                    <br> } else if (!ship.isPhased()) {
+                    <br> return "NOT PHASED";
+                    <br> } else if (system.getState() != ShipSystemAPI.SystemState.IDLE) {
+                    <br> return "NOT READY";
+                    <br> } else {
+                    <br> return "READY";
+                    <br> }
+                    <br> }
+                    <br>
+                    <br> }
+                    <br>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <a href="../ShipSystems/Downloads/DEA_FluxConsumer.java" download class="btn btn-primary">Save</a>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="system">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Başlık</h4>
+                </div>
+                <div class="modal-body">
+                    {<br> "id":"DEA_FluxConsumer",<br> "type":"STAT_MOD",<br> "aiType":"WEAPON_BOOST",<br><br> <br>
+                    "statsScript":"data.shipsystems.scripts.DEA_FluxConsumer",<br> <br>
+                    "canUseWhileRightClickSystemOn":true,<br><br> "fadeActivationSoundOnChargedown":true,<br>
+                    "outOfUsesSound":"gun_out_of_ammo",<br> <br> "aiHints":{<br> "burstMovementPotential":0<br> }<br>}
+                </div>
+                <div class="modal-footer">
+                    <a href="../ShipSystems/Downloads/DEA_FluxConsumer.system" download class="btn btn-primary">Save</a>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
 
         <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
             <div class="col-lg-4 col-md-6 col-sm-12 float-start">
@@ -194,9 +207,10 @@
             <div class="col-lg-8 col-md-6 col-sm-12 float-end p-2 mt-2 card border">
                 //system description <br>
 
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#demo">
-                    <i class="fa-solid fa-eye"></i> Ship's System</a>
-                </button>
+                <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#script"><i
+                        class="fa-solid fa-eye"></i> Ship's System's .java File</a></button>
+                <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#system"><i
+                        class="fa-solid fa-eye"></i> Ship's System's .system File</a></button>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sit sint, nam dolore placeat minus
                 praesentium sequi! Ad laudantium omnis nulla minima dolore, qui quo vel deleniti quibusdam quos dolores!
                 <br> //fill with anavatans description
