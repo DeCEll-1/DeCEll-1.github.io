@@ -20,9 +20,79 @@
 </head>
 
 <body>
+
+    <div class="modal fade" id="ship_data">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">ship_data.csv</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating,max
+                        flux,8/6/5/4%,flux dissipation,ordnance points,fighter bays,max
+                        speed,acceleration,deceleration,max
+                        turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield
+                        efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base
+                        value,cr
+                        %/day,CR to deploy,peak CR sec,CR
+                        loss/sec,supplies/rec,supplies/mo,c/s,c/f,f/s,f/f,crew/s,crew/f,hints,tags,rarity,breakProb,minPieces,maxPieces,travel
+                        drive,number<br>
+                        Storat,DEA_Storat,Shuttle,Staralites,DEA_ZaWarudo,5,1100,200,1800,1000,200,64,2,150,150,90,40,85,80,OMNI,,180,0.7,0.7,,,2,20,30,15,1,15,9,6000,5,20,220,0.25,2,3,,,,,,,,base_bp,,0.75,2,2,,217<br>
+                        Blizzard,DEA_01Adana,Frigate,Staralites,DEA_TemporalShield,8,4500,700,8000,2813,700,92,,90,100,70,140,270,600,OMNI,,270,0.05,0.65,,,50,80,60,40,2,40,7,36000,7,12,240,0.25,20,8,,,,,,,,rare_bp,,0.5,4,6,,206<br>
+                        Mountain of
+                        Mountains,DEA_04Agri,Freighter,Staralites,burndrive,3,1000,70,700,1167,20,28,,50,25,20,15,7,400,NONE,,,,,,,7,20,300,80,1,40,9,5000,7,7,240,0.25,2,2,133,200,,,,,"CIVILIAN,
+                        FREIGHTER","base_bp, merc",0.7,1,4,6,,304<br>
+                        Bulut,DEA_Bulut,Battleship,Staralites,DEA_FluxConsumer,40,16000,1300,19000,4624,1000,256,,50,25,17,15,7,4000,PHASE,phasecloak,,,,0.02,0.02,400,600,250,600,10,60,7,600000,4,30,650,0.25,65,65,,,,,,,,"rare_bp,
+                        hist3t, merc",,0.4,2,4,,2786<br>
+                        ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<br>
+                        Chemical
+                        Inbalance,DEA_Storat_Wing,,Staralites,,,1500,700,1600,,200,0,,200,400,350,90,180,30,OMNI,,360,4,0.7,,,1,1,,,,,,,,,,,,,,,,,,,,,,0,,,,104<br>
+                        ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<br>
+                        #Ziggurat,ziggurat,Phase Vessel,High
+                        Tech,mote_control,40,14000,1500,16000,24000,1200,260,,40,50,50,20,30,2400,PHASE,phasecloak,,,,0.02,0.02,300,400,200,500,10,50,7,1000000,3,50,600,0.25,75,75,,,,,,,HIDE_IN_CODEX,,,0.4,2,3,,510<br>
+                        #Paragon,paragon,Battleship,High
+                        Tech,fortressshield,30,18000,1500,25000,31250,1250,370,,30,15,10,5,5,3500,OMNI,,360,0.6,0.6,,,400,1000,300,300,10,30,7,500000,4,20,720,0.25,60,60,,,,,,,,"rare_bp,
+                        hist3t, merc",,0.6,2,4,,504<br>
+                        #Broadsword,broadsword,,Low
+                        Tech,flarelauncher_fighter,,750,100,80,,10,0,,200,400,350,90,180,30,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,0,,,,104<br>
+                        #Kite,kite,Shuttle,Midline,maneuveringjets,3,900,150,1400,1000,80,25,,140,150,75,45,85,120,OMNI,,150,0.5,0.8,,,2,30,30,15,1,15,9,4000,5,20,180,0.25,2,2,,,,,,,,base_bp,,0.75,2,2,,217
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="csvs/ship_data.csv" download class="btn btn-primary">Download</a>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="wing_data">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">ship_data.csv</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        id,variant,tags,tier,rarity,fleet pts,op
+                        cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base
+                        value,,,,,,,,,,,,,number<br>DEA_Storat_Wing,DEA_Storat_Wing_variant1,,13,,30,0,V,2000,700,,1,FIGHTER,Defense
+                        Ball,6,795000,,,,,,,,,,,,,2<br>#broadsword_wing,broadsword_Fighter,"fighter4,
+                        fighter",0,,6,8,V,4000,500,,3,FIGHTER,Heavy Fighter,10,6000,,,,,,,,,,,,,1
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="csvs/wing_data.csv" download class="btn btn-primary">Download</a>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
-
-
 
         <div class="container ps-0 pe-0 nav-tabs nav">
 
@@ -36,16 +106,19 @@
                 <a class="nav-link active" href="#eleman1" data-bs-toggle="tab">Ships</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#eleman2" data-bs-toggle="tab">Missions</a>
+                <a class="nav-link" href="#eleman2" data-bs-toggle="tab">.csv Files</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#eleman3" data-bs-toggle="tab">???</a>
+                <a class="nav-link" href="#eleman3" data-bs-toggle="tab">Missions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#eleman4" data-bs-toggle="tab">???</a>
             </li>
         </div>
+
+
         <div class="tab-content float-none">
+            <!-- Ships -->
             <div class="tab-pane container active" id="eleman1">
                 <div class="container">
                     <div class="row">
@@ -69,13 +142,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- .csv Files -->
+            <div class="tab-pane container fade" id="eleman2">
 
-
-
+                <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#ship_data"><i
+                        class="fa-solid fa-eye"></i> ship_data.csv</a></button>
+                <button class="btn btn-light mt-2" data-bs-toggle="modal" data-bs-target="#wing_data"><i
+                        class="fa-solid fa-eye"></i> wing_data.csv</a></button>
 
             </div>
-            <div class="tab-pane container fade" id="eleman2">Eleman 2 içerik</div>
-            <div class="tab-pane container fade" id="eleman3">Eleman 3 içerik</div>
+            <!-- Missions -->
+            <div class="tab-pane container fade" id="eleman3">
+                Missions
+            </div>
             <div class="tab-pane container fade" id="eleman4">Eleman 4 içerik</div>
         </div>
     </div>
