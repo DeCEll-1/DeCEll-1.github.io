@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Uygulama 2</title>
+
+    <style>
+        .kutu {width: 100px;height: 40px;background-color: #ddd;padding: 30px;}
+        @media screen and (min-width:900px) {
+            #div1{color:white;background-color: rgb(75, 75, 75);}
+        }
+        @media screen and (min-width:600px) and (max-width:900px){
+            #div2{color:white;background-color: rgb(75, 75, 75);}
+        }
+        @media screen and (min-width:500px)  and (max-width:600px){
+            #div3{color:white;background-color: rgb(75, 75, 75);}
+        }
+        @media screen and (max-width:500px) {
+            #div4{color:white;background-color: rgb(75, 75, 75);}
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="kutu" id="div1">900 Üstü İse</div>
+    <div class="kutu" id="div2">600 - 900 Arası İse</div>
+    <div class="kutu" id="div3">500 - 600 Arası İse</div>
+    <div class="kutu" id="div4">500 Altı İse</div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Veri Türleri</h2>
+    <b>JSde 8 adet veri tipi vardır</b>
+
+    <ol>
+        <li>String</li>
+        <li>Number</li>
+        <li>Bigint</li>
+        <li>Boolean</li>
+        <li>Undefined</li>
+        <li>Null</li>
+        <li>Symboll</li>
+        <li>Object</li>
+    </ol>
+
+    <b>Object 3 Farklı Türden Oluşur</b>
+    <ul>
+        <li>Object</li>
+        <li>Array</li>
+        <li>Date</li>
+    </ul>
+
+    <br>
+
+    var Diğer Fucntionlarda Kullanılabilirken (function Scope)
+    let Sadece Tanımlandığı Functionda Kullanılabilir(block Scope)
+    Yani let ile oluşturulan bir değişken sadece oluşturulduğu yerdeki süslü parantezler içerisinde erişilebilir
+    <br>
+    Sonuç = <label id="sonuc"></label>
+
+    <br>
+
+    <label id="ogr"></label>
+    <br>
+    <label id="ogr2"></label>
+
+    <script>
+        var sayi1 = 5;
+
+        let sayi2 = 7 + "üç";
+
+        let sonuc = sayi1 + sayi2 + "beş";
+
+        document.getElementById("sonuc").innerHTML = sonuc;
+
+        const ogrenciler = ["Hacı", "Ufuk", "Merdan", "Aleyna"];
+        const ogrenci = { isim: "Alp", soyisim: "Sarıkışla" };
+        document.getElementById("ogr").innerHTML = ogrenciler[1];
+        document.getElementById("ogr2").innerHTML = ogrenci.isim;
+
+
+    </script>
+</body>
+
+</html>

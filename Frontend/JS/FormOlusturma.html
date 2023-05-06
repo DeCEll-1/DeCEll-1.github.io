@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 500px;
+            height: 200px;
+            background-color: #5c5c5c;
+            border: 1px solid #6e6e6e;
+            border-radius: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+
+        .inputbox {
+            border:3px solid gray;
+            
+            outline: none;
+            width: 360px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .inputbox:focus {
+            outline: 3px solid #91ffef;
+        }
+
+        .row {
+            margin: 20px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <input oninput="inputvalidate(this)" type="text" class="inputbox">
+        </div>
+        <div class="row">
+            <input oninput="inputvalidate(this)" type="password" class="inputbox">
+        </div>
+
+    </div>
+
+    <script src="scripts/formelemanlari.js"></script>
+</body>
+
+</html>

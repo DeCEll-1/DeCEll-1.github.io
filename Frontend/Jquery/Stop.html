@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+    <style>
+        #panel,
+        #acordion {
+            padding: 5px;
+            text-align: center;
+            border: solid 1px #cccccc;
+        }
+
+        #acordion {
+            background-color: #878787;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        #panel {
+            background-color: #fefefe;
+            padding: 50px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn_Stop">stop</button>
+    <div id="acordion">Detaylar İçin Tıklayınız</div>
+    <div id="panel">Lorem laboris deserunt sit do ea minim ipsum mollit amet consequat Lorem. Do do aute cupidatat
+        labore aliqua ullamco do laboris eiusmod commodo eiusmod officia adipisicing do. Nisi esse ut ex occaecat amet
+        nulla voluptate proident adipisicing sint aliqua excepteur fugiat. Enim non excepteur laborum cupidatat nulla
+        exercitation consectetur. Laborum eiusmod ad adipisicing do non consequat irure nisi ipsum aliqua. Deserunt quis
+        consequat ex do.</div>
+
+    <p>slideDown, slideUp, slideToggle</p>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn_Stop").click(function () {
+                $("#panel").stop();
+            });
+            $("#acordion").click(function () {
+                $("#panel").slideDown(5000);
+            });
+        });
+    </script>
+</body>
+
+</html>

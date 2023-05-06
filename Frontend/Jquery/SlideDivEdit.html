@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideDivEdit</title>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+    <style>
+        .slider {
+            -webkit-appearance: none;
+            width: 300px;
+            height: 15px;
+            border-radius: 5px;
+            background: lightblue;
+            outline: none;
+            margin-right: 0;
+        }
+
+        .slider::-moz-range-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 15px;
+            border-radius: 5px;
+            background: gray;
+            outline: none;
+            border: none;
+            cursor: grab;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 5px;
+            height: 15px;
+            border-radius: 50%;
+            background: gray;
+            outline: none;
+            border: none;
+            cursor: grab;
+        }
+
+        .container {
+            border: 1px solid #5c5c5c;
+        }
+
+        #div_Target {
+            float: left;
+            height: 100px;
+            width: 100px;
+            background-color: #5c5c5c;
+            border-top: solid 3px yellow;
+            border-left: solid 3px purple;
+        }
+
+        .borderradius{
+            float: left;
+            margin-left: 40px;
+            height: 100px;
+            width: 100px;
+            border:3px solid aquamarine;
+            background-color: #5c5c5c;
+            border-radius: 50px;
+        }
+
+    </style>
+    <!-- colors -->
+    <style>
+        .red::-moz-range-thumb {
+            background: red;
+        }
+
+        .green::-moz-range-thumb {
+            background: green;
+        }
+
+        .blue::-moz-range-thumb {
+            background: blue;
+        }
+
+        .yellow::-moz-range-thumb {
+            background: yellow;
+        }
+
+        .purple::-moz-range-thumb {
+            background: purple;
+        }
+
+        .aquamarine::-moz-range-thumb {
+            background: aquamarine;
+        }
+
+        .red::-webkit-slider-thumb {
+            background: red;
+        }
+
+        .green::-webkit-slider-thumb {
+            background: green;
+        }
+
+        .blue::-webkit-slider-thumb {
+            background: blue;
+        }
+
+        .yellow::-webkit-slider-thumb {
+            background: yellow;
+        }
+
+        .purple::-webkit-slider-thumb {
+            background: purple;
+        }
+
+        .aquamarine::-webkit-slider-thumb {
+            background: aquamarine;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <input type="range" id="rng_Red" max="255" min="0" value="0" class="slider red"><br>
+        <input type="range" id="rng_Green" max="255" min="0" value="0" class="slider green"><br>
+        <input type="range" id="rng_Blue" max="255" min="0" value="0" class="slider blue"><br>
+        <input type="range" id="rng_Width" max="200" min="100" value="0" class="slider yellow"><br>
+        <input type="range" id="rng_Height" max="200" min="100" value="0" class="slider purple"><br>
+        <input type="range" id="rng_Sircle" max="50" min="0" value="0" class="slider aquamarine"><br>
+    </div>
+
+    <div id="div_Target">
+
+    </div>
+
+    <div class="borderradius">
+
+    </div>
+
+
+    <script>
+
+        var RedColor = 0;
+        var GreenColor = 0;
+        var BlueColor = 0;
+
+
+        $(document).ready(function () {
+            $("#rng_Red").val("0");
+            $("#rng_Green").val("0");
+            $("#rng_Blue").val("0");
+            $("#rng_Width").val("0");
+            $("#rng_Height").val("0");
+            $("#rng_Sircle").val("0");
+        });
+
+
+        $(document).ready(function () {
+            $("#rng_Red").on("input", function () {
+                RedColor = $(this).val();
+                $("#div_Target").css("background-color", "rgb(" + $(this).val() + ", " + GreenColor + ", " + BlueColor + ")")
+            });
+            $("#rng_Green").on("input", function () {
+                GreenColor = $(this).val();
+                $("#div_Target").css("background-color", "rgb(" + RedColor + ", " + $(this).val() + ", " + BlueColor + ")")
+            });
+            $("#rng_Blue").on("input", function () {
+                BlueColor = $(this).val();
+                $("#div_Target").css("background-color", "rgb(" + RedColor + ", " + GreenColor + ", " + $(this).val() + ")")
+            });
+            $("#rng_Width").on("input", function () {
+                $("#div_Target").css("width", $(this).val())
+            });
+            $("#rng_Height").on("input", function () {
+                $("#div_Target").css("height", $(this).val())
+            });
+            $("#rng_Sircle").on("input", function () {
+                $("#div_Target").css("border-radius", $(this).val()+"%")
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>

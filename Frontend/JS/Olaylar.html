@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p><b>click</b></p>
+    <input type="button" onclick="console.log('click');">
+
+    <p><b>mouse over</b></p>
+    <input type="button" onmouseover="console.log('mouse over');">
+
+    <p><b>mouse out</b></p>
+    <input type="button" onmouseout="console.log('mouse out');">
+
+    <p><b>onchange</b></p>
+    <input type="text" onchange="console.log('onchange');">
+
+    <p><b>on input</b></p>
+    <input id="metinkutu" type="text" oninput="oninputf()">
+    <br>
+    <label id="yazi"> </label>
+
+    <p><b>on change select</b></p>
+    <select onchange="onchangel()" id="sehir">
+        <option>Ankara</option>
+        <option>İstanbul</option>
+        <option>İzmir</option>
+        <option>Eskişehir</option>
+    </select>
+    <br>
+    <label id="onchangeyazi"> </label>
+
+    <p><b>on key up</b></p>
+    Adınızı Giriniz: <input type="text" id="tb_Isim" onkeyup="isimkeyup()" placeholder="as">
+
+    <p><b>on focus</b></p>
+
+    <p>Şifreniz:</p>
+    <input type="password" onfocus="focusfunction(this)" onfocusout="focusoutfunction(this)">
+
+    <p>Kullanıcı Adınız</p>
+    <input type="text" onfocus="focusfunction(this)" onfocusout="focusoutfunction(this)">
+
+
+    <script>
+        function oninputf() {
+            var metin = document.getElementById("metinkutu").value;
+            document.getElementById("yazi").innerHTML = metin;
+            console.log("a");
+        }
+
+        function onchangel() {
+            var a = document.getElementById("sehir").value;
+            document.getElementById("onchangeyazi").innerHTML = a;
+        }
+
+        function isimkeyup() {
+            var tb_Isim_nesne = document.getElementById("tb_Isim");
+            tb_Isim_nesne.value = tb_Isim_nesne.value.toUpperCase();
+        }
+
+        function focusfunction(a) {
+            a.style.borderColor = "aqua";
+        }
+
+        function focusoutfunction(a) {
+            a.style.borderColor = "silver";
+        }
+    </script>
+
+
+</body>
+
+</html>

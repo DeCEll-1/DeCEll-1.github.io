@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+    <title>Get</title>
+</head>
+
+<body>
+
+    <h2>Text(),html(),val()</h2>
+
+    <p id="metin">Bu Paragraf <i> Metnin </i> İçeriği <a target="_blank" href="RangeSlider.html">RangeSlider</a> </p>
+
+    <button id="btn_1">Metin Göster</button>
+    <button id="btn_2">HTML Göster</button>
+
+    <br>
+
+    <p>İsim = <input type="text" id="tb_isim"></p>
+
+    <button id="btn_3">Değer Göster</button>
+
+    <br>
+    <br>
+
+    <a href="https://www.google.com" id="link">Google</a>
+
+    <button id="btn_4">Bu nereye Gider</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn_1").click(function () {
+                alert("Text = " + $("#metin").text());
+            });
+            $("#btn_2").click(function () {
+                alert("HTML = " + $("#metin").html());
+            });
+            $("#btn_3").click(function () {
+                alert("Val = " + $("#tb_isim").val());
+            });
+            $("#btn_4").click(function () {
+                alert("Attribute = " + $("#link").attr("href"));
+            });
+        });
+    </script>
+</body>
+
+</html>

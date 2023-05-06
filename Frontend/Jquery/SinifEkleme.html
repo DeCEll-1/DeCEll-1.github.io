@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınıf Ekleme</title>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+
+    <style>
+        .mavi {
+            color: blue;
+        }
+
+        .onemli {
+            font-weight: bold;
+            font-size: xx-large;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Başlık 1</h1>
+    <h2>Başlık 2</h2>
+    <p>Bu Bir Paragraf</p>
+    <p>Bu Bir Paragraf</p>
+    <div>Bu Bir Div</div>
+    <span>Bu Bir Span İçeriğidir</span><br>
+    <button id="btn_sinifEkle">Sınıf Ekle</button>
+    <button id="btn_sinifSil">Sınıf Sil</button>
+    <button id="btn_sinifToggle">Sınıf Toggle</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn_sinifEkle").click(function () {
+                $("h1, h2, p").addClass("mavi");
+                $("div, p").addClass("onemli");
+                $("span").addClass("mavi onemli");
+            });
+            $("#btn_sinifSil").click(function () {
+                $("h1,h2,p").removeClass("mavi");
+            });
+            $("#btn_sinifToggle").click(function () {
+                $("h1,h2,p").toggleClass("mavi");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

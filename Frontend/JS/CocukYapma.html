@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="btn_tikla()">
+        aaaaaaaaa
+    </button>
+
+
+    <ul id="liste">
+        <li>Ankara
+    </ul>
+    </ul>
+    <script>
+
+        window.onload = setInterval(btn_tikla, 1)
+
+        var i = 0;
+
+        function btn_tikla() {
+            const node = document.createElement("li");
+            const textnode = document.createTextNode("Süleyman" + i);
+            node.appendChild(textnode);
+            document.getElementById("liste").appendChild(node);
+            i++;
+        }
+    </script>
+
+</body>
+
+</html>

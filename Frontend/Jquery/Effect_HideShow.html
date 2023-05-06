@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect_HideShow</title>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <p>Nulla nostrud adipisicing elit reprehenderit fugiat labore incididunt anim ex nostrud quis voluptate. Mollit et
+        incididunt id proident laboris. Sit ea culpa pariatur culpa exercitation deserunt exercitation incididunt
+        tempor. Consectetur sint et laboris eiusmod velit ullamco sit. Ex duis esse aliqua consectetur ea laborum
+        cupidatat minim pariatur proident laborum ex laborum deserunt. Officia magna officia fugiat est non incididunt
+        irure excepteur consectetur dolore anim commodo. Reprehenderit nostrud dolor anim velit minim exercitation
+        veniam id anim qui.</p>
+    <div>Nulla nostrud adipisicing elit reprehenderit fugiat labore incididunt anim ex nostrud quis voluptate. Mollit et
+        incididunt id proident laboris. Sit ea culpa pariatur culpa exercitation deserunt exercitation incididunt
+        tempor. Consectetur sint et laboris eiusmod velit ullamco sit. Ex duis esse aliqua consectetur ea laborum
+        cupidatat minim pariatur proident laborum ex laborum deserunt. Officia magna officia fugiat est non incididunt
+        irure excepteur consectetur dolore anim commodo. Reprehenderit nostrud dolor anim velit minim exercitation
+        veniam id anim qui.</div>
+    <p>Nulla nostrud adipisicing elit reprehenderit fugiat labore incididunt anim ex nostrud quis voluptate. Mollit et
+        incididunt id proident laboris. Sit ea culpa pariatur culpa exercitation deserunt exercitation incididunt
+        tempor. Consectetur sint et laboris eiusmod velit ullamco sit. Ex duis esse aliqua consectetur ea laborum
+        cupidatat minim pariatur proident laborum ex laborum deserunt. Officia magna officia fugiat est non incididunt
+        irure excepteur consectetur dolore anim commodo. Reprehenderit nostrud dolor anim velit minim exercitation
+        veniam id anim qui.</p>
+    <button id="hide">Gizle</button>
+    <button id="show">Göster</button>
+    <p style="background-color: red;color:aqua" id="p_toggle">Aliqua nostrud veniam cillum culpa aute id sunt deserunt
+        consequat. Magna velit aliquip dolor
+        cillum
+        culpa in ad ex reprehenderit occaecat anim. Irure anim esse do voluptate.</p>
+    <button id="btn_toggle">şalter</button>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide(5000);
+            });
+            $("#show").click(function () {
+                $("p").show(5000);
+            });
+            $("#btn_toggle").click(function () {
+                $("#p_toggle").toggle(1000);
+            });
+        })
+    </script>
+</body>
+
+</html>

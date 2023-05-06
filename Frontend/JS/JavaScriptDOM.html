@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptDOM</title>
+</head>
+
+<body>
+    <h3>getElementById() metodu</h3>
+
+    <label id="ekran"></label>
+    <script>
+        document.getElementById("ekran").innerHTML = "Merhaba Label";
+    </script>
+
+    <h3>getElementsByClassName() metodu</h3>
+    <div class="kutu">Kutu 1</div>
+    <div class="kutu">kutu 2</div>
+    <div class="kutu" name="murtaza">kutu 3</div>
+    <p>Paragraf etiketi içerisindeki <span> span </span> Etiketi kutu sınıfı alınıyor</p>
+    <script>
+        const kutular = document.getElementsByClassName("kutu");
+        kutular[0].innerHTML = "🤨";
+        for (let i = 0; i < kutular.length; i++) {
+            kutular[i].style.backgroundColor = "green";
+        }
+    </script>
+
+    <h3>getelementsByName() metodu</h3>
+    <div class="kutu" name="murtaza">kutu 4</div>
+    <label name="murtaza">amogi</label>
+    <script>
+        const isimler = document.getElementsByName("murtaza");
+        for (let i = 0; i < isimler.length; i++) {
+            isimler[i].style.color = "red";
+        }
+
+        const basliklar = document.getElementsByTagName("h3");
+        alert(basliklar[1].innerHTML)
+
+    </script>
+
+
+</body>
+
+</html>

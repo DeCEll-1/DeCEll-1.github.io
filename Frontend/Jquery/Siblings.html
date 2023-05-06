@@ -1,0 +1,61 @@
+<!-- <div>
+            <p>p1</p>
+            <span>span</span>
+            <h2>h2</h2>
+            <h3>h3</h3>
+            <p>p2</p>
+        </div> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>siblings</title>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+
+    <style>
+        .kardesler * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            // $("h2").siblings("p").css({ "color": "red", "border": "2px solid red" });
+            $("h6").prevUntil("h2").css({ "color": "red", "border": "2px solid red" });
+        });
+    </script>
+
+</head>
+
+<body class="kardesler">
+    <div>
+
+        <abuzittin>abuzittin</abuzittin>
+
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+    </div>
+
+    $("h2").siblings() = h2 nin kardeşleri <br>
+    $("h2").siblings("p") = h2 nin p kardeşleri <br>
+    $("h2").next() = sonraki kardeş <br>
+    $("h2").nextAll() = sonraki tüm kardeşler <br>
+    $("h2").nextUntil("h6") = h6 ya kadar <br>
+
+    $("h6").prev() = önceki kardeş <br>
+    $("h6").prevAll() = önceki tüm kardeşler <br>
+    $("h6").prevUntil("h2") = h2 ye kadar
+</body>
+
+</html>

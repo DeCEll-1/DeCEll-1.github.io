@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ClassChange</title>
+
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+
+    <style>
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+
+        <label class="green" id="amogus"> i am green</label>
+
+        <button id="classChange">
+            kırmızı yap :thumbsup:
+        </button>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#classChange").click(function () {
+                $("#amogus").removeClass("green");
+                $("#amogus").addClass("red");
+            })
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link href="Assets/fontawesome/css/all.min.css" rel="stylesheet">
+        <style>
+            #link
+            {
+                color: white;
+                background-color: green;
+                padding: 10px 30px;
+                font-family: calibri;
+
+            }
+        </style>
+    </head>
+    <body>
+       <a href="#" id="link" onmouseenter="enter()" onmouseleave="leave()">
+        <i class='fa-sharp fa-solid fa-door-closed'></i> Giriş
+       </a>
+       <script>
+        function enter()
+        {
+            document.getElementById("link").innerHTML = "<i class='fa-sharp fa-solid fa-door-open'></i> Giriş";
+        }
+        function leave()
+        {
+            document.getElementById("link").innerHTML = "<i class='fa-sharp fa-solid fa-door-closed'></i> Giriş";
+        }
+    </script>
+    </body>
+</html>

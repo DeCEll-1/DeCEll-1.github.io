@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diziler</title>
+</head>
+
+<body>
+
+    Sonuç = <label id="sonuc"></label>
+
+
+    <script>
+
+        const dizi = ["Kalem", "Silgi", "Domates", "Defter", "Audi", 22]
+
+        // document.getElementById("sonuc").innerHTML = dizi[5];
+
+        // document.getElementById("sonuc").innerHTML = dizi;
+
+        // document.getElementById("sonuc").innerHTML = dizi.length;
+
+        // document.getElementById("sonuc").innerHTML = dizi.sort();
+
+        dizi.push("eleman");
+
+        // document.getElementById("sonuc").innerHTML = dizi.join(" * ");
+
+        // document.getElementById("sonuc").innerHTML = dizi.pop(); //SON ELEMANI SİLER
+
+        delete dizi[2];
+        
+        document.getElementById("sonuc").innerHTML = dizi;
+
+
+
+
+    </script>
+</body>
+
+</html>

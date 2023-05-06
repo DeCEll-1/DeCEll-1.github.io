@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <!-- <link rel="stylesheet" href="../Css/Assets/fontawesome/css/all.min.css">
+    <link href="assets/bootstrap-5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <style>
+        .tasiyici {
+            background-color: silver;
+            display: flex;
+            /* direction: rtl; */
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* align-items: stretch; elemanın yüksekliği olmayacak */
+            /* flex-wrap: wrap-reverse; */
+            height: 150px;
+        }
+
+        .image {
+            width: 100%;
+        }
+
+        .tasiyici2 {
+            background-color: silver;
+            margin-top: 20px;
+            width: 500px;
+            /* justify-content: center; */
+            text-align: justify;
+        }
+
+        .eleman {
+            background-color: deeppink;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        .eleman:hover {
+            -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .eleman:nth-child(1){order:1}/*kaçıncı elemanı düzenleyecen?*/
+        .eleman:nth-child(2){order:1}
+        .eleman:nth-child(3){order:1}
+    </style>
+
+</head>
+
+<body>
+
+    <p>Boyutları bilinmeyen dinamik alanlar için geliştirilmiş yapıdır.</p>
+    <p>Bildiğimiz üzre nesnelerin sağa sola hizalamak için float kullanılırDI. Flex yapısı buna alternatif olarak
+        geliştirilmiştir</p>
+
+    <div class="tasiyici">
+        <div class="eleman">
+            <img class="image" src="assets/Images/000026.jpg" alt="">
+        </div>
+        <div class="eleman">Eleman2</div>
+        <div class="eleman">Eleman3</div>
+        <div class="eleman">Eleman4</div>
+        <div class="eleman">Eleman5</div>
+        <div class="eleman">Eleman6</div>
+        <div class="eleman">Eleman7</div>
+        <div class="eleman">Eleman8</div>
+        <div class="eleman">Eleman9</div>
+    </div>
+    <div class="tasiyici2">
+        Laborum fugiat incididunt consectetur sint esse. Consectetur sunt magna non ipsum qui eu dolor ipsum et. Quis et
+        commodo nulla cillum anim culpa. Occaecat veniam sunt commodo nulla occaecat qui anim est dolore elit officia
+        veniam adipisicing. Excepteur nostrud id mollit exercitation consequat quis. Nulla reprehenderit anim aliquip
+        commodo laboris elit voluptate ipsum ex.
+
+        Nostrud ullamco tempor voluptate velit proident nulla ut ex aliquip id aute id culpa. Consectetur tempor sunt
+        sint cillum aliqua aliquip id qui consectetur. Do consequat id eiusmod voluptate ea est labore cupidatat. Ex ad
+        incididunt culpa anim ut velit. Fugiat adipisicing ex voluptate velit est laboris non ullamco elit quis pariatur
+        exercitation Lorem et. Tempor incididunt exercitation dolore ullamco amet pariatur anim et proident. Mollit ad
+        cillum do voluptate sint commodo tempor.
+    </div>
+
+
+    <!-- <script src="assets/bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../Jquery/scripts/jquery-3.6.4.min.js"></script> -->
+</body>
+
+</html>

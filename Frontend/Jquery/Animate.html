@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kutu {
+            background-color: royalblue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            padding-top: auto;
+            text-align: center;
+        }
+    </style>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <button id="a1">Animasyon Başlar</button>
+    <button id="a2">Ekleme Sistemi</button>
+    <button id="a3">toggle kullanımı</button>
+    <button id="a4">Slow</button>
+    <button id="a5">Font ile ilgili</button>
+    <div class="kutu">
+        Kutu 1
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#a1").click(function () {
+                $("div").animate({
+                    left: '250px',
+                    top: '250px',
+                    opacity: '0.75',
+                    height: '150px',
+                    width: '150px',
+                    background: 'Red',
+                }).css("background", "red");
+            });
+            $("#a2").click(function () {
+                $("div").animate({
+                    height: '+=50px',
+                    width: '+=50px'
+                });
+            });
+            $("#a3").click(function () {
+                $("div").animate({
+                    height: 'toggle',
+                    width: 'toggle',
+                    top: 'toggle',
+                    left: 'toggle',
+                });
+            });
+            $("#a4").click(function () {
+                var kutu = $("div")
+                kutu.animate({ height: '300px' }, "slow");
+                kutu.animate({ width: '300px' }, "slow");
+                kutu.animate({ height: '100px' }, "slow");
+                kutu.animate({ width: '100px' }, "slow");
+            });
+            $("#a5").click(function () {
+                var kutu = $("div")
+                kutu.animate({left: '250px'}, 'slow');
+                kutu.animate({fontSize:'2000pt'},"slow");
+            });
+
+        })
+    </script>
+</body>
+
+</html>

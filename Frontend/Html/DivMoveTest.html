@@ -1,0 +1,72 @@
+<head>
+    <script>
+
+        document.onkeydown = MoveKey;
+
+        function MoveKey(e) {
+
+            e = e || window.event;
+            if (e.keyCode == "104") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.top = position.top - 10 + 'px';
+            }
+            else if (e.keyCode == "103") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.top = position.top - 10 + 'px';
+                div.style.left = position.left - 10 + 'px';
+            }
+            else if (e.keyCode == "100") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.left = position.left - 10 + 'px';
+            }
+            else if (e.keyCode == "102") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.left = position.left + 10 + 'px';
+            }
+            else if (e.keyCode == "97") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.left = position.left - 10 + 'px';
+                div.style.top = position.top + 10 + 'px';
+            }
+            else if (e.keyCode == "98") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.top = position.top + 10 + 'px';
+            }
+            else if (e.keyCode == "99") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.left = position.left + 10 + 'px';
+                div.style.top = position.top + 10 + 'px';
+            }
+            else if (e.keyCode == "105") {
+                var div = document.getElementById('Box');
+                var position = div.getBoundingClientRect();
+                div.style.left = position.left + 10 + 'px';
+                div.style.top = position.top - 10 + 'px';
+            }
+            
+            else if (e.keyCode == "107") {
+                var div = document.getElementById('Box');
+                div.style.width = div.clientWidth + 10 + 'px';
+                div.style.height = div.clientHeight + 10 + 'px';
+            }
+            else if (e.keyCode == "109") {
+                var div = document.getElementById('Box');
+                div.style.width = (div.clientWidth - 10) + 'px';
+                div.style.height = (div.clientHeight - 10) + 'px';
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="Box" style="position: absolute;width: 20px;height: 20px;background-color: red;"></div>
+
+</body>

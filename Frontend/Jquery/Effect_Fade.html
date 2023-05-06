@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+    <title>Effect_Fade</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            display: none;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn_show">Gelsin Kutular</button><br>
+    <button id="btn_hide">Gitsin Kutular</button><br>
+    <button id="btn_gizlegoster">kutuları gizle göster</button><br>
+    <button id="btn_biryerekadar">bir yere kadar</button><br>
+    <div id="div1" style="background-color: #6b3b9e;"></div>
+    <div id="div2" style="background-color: #3b849e;"></div>
+    <div id="div3" style="background-color: #3b9e71;"></div>
+    <script>
+        $(document).ready(function () {
+            $("#btn_show").click(function () {
+                $("#div1").fadeIn(1000);
+                $("#div2").fadeIn(1500);
+                $("#div3").fadeIn(2000);
+            });
+            $("#btn_hide").click(function () {
+                $("#div1").fadeOut(1000);
+                $("#div2").fadeOut(1500);
+                $("#div3").fadeOut(2000);
+            });
+            $("#btn_gizlegoster").click(function () {
+                $("#div1").fadeToggle(500);
+                $("#div2").fadeToggle(1000);
+                $("#div3").fadeToggle(1500);
+            });
+            $("#btn_biryerekadar").click(function () {
+                $("#div1").fadeTo("slow", 0.50);
+                $("#div2").fadeTo(1000, 0.25);
+                $("#div3").fadeTo(1500, 0.75);
+            })
+        })
+
+    </script>
+</body>
+
+</html>

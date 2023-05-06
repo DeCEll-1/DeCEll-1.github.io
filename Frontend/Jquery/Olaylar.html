@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="scripts/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <h3>Click olayı</h3>
+    <p>Exercitation proident minim consequat mollit.</p>
+    <p>Exercitation proident minim consequat mollit.</p>
+    <p>Exercitation proident minim consequat mollit.</p>
+    <p>Exercitation proident minim consequat mollit.</p>
+
+    <h3>double click olayı</h3>
+    <label>Incididunt ex magna nulla labore dolor amet.</label><br>
+    <label>Incididunt ex magna nulla labore dolor amet.</label><br>
+    <label>Incididunt ex magna nulla labore dolor amet.</label><br>
+    <label>Incididunt ex magna nulla labore dolor amet.</label>
+
+    <h3>mouse enter olayı</h3>
+    <span id="s1">üzerime gelme kaçarım</span>
+
+    <h3>mouse leave olayı</h3>
+    <span id="s2">mouse leave amogi</span>
+
+    <h3>mouse up olayı</h3>
+    <span id="s3">mouse up aaaaaaaaaaaaaaaaaa</span>
+
+    <h3>focus ve blur olayı</h3>
+    isim = <input type="text"><br>
+    email = <input type="text">
+
+    <h3>On Kullanımı</h3>
+    <span id="s4">tıkla s4</span>
+
+    <h3>toplu on kullanımı</h3>
+    <span id="s5">olaylar olaylar</span>
+
+
+    <script>
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+            $("label").dblclick(function () {
+                $(this).hide();
+            });
+            $("#s1").mouseenter(function () {
+                $(this).hide();
+            });
+            $("#s2").mouseleave(function () {
+                $(this).hide();
+            });
+            $("#s3").mouseup(function () {
+                alert("mouse bırakıldı");
+            });
+            $("input").focus(function () {
+                $(this).css("background-color", "aqua");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "green");
+            });
+            $("#s4").on("click", function () {
+                $(this).hide();
+            });
+            $("#s5").on({
+                mouseenter: function () {
+                    $(this).css("color", "red");
+                },
+                mouseleave: function () {
+                    $(this).css("color", "aqua");
+                },
+                click: function () {
+                    $(this).css("color", "pink");
+                },
+            });
+        });
+    </script>
+
+</body>
+
+</html>

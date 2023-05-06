@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+    <style>
+        .aquamarine {
+            background-color: aqua;
+            color: aquamarine;
+            width: 500px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .yesilkutu {
+
+            background-color: green;
+            color: greenyellow;
+            width: 500px;
+            height: 200px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="kutu" class="aquamarine" onclick="divclick()">
+        s
+    </div>
+
+    <script>
+        var kutu = true;
+
+        function divclick() {
+
+            if (kutu) {
+                document.getElementById("kutu").className = "aquamarine";
+                kutu = false;
+            } else{
+                document.getElementById("kutu").className = "yesilkutu";
+                kutu = true;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
