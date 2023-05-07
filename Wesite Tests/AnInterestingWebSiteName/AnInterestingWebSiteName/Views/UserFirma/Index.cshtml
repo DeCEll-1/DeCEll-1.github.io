@@ -1,0 +1,37 @@
+﻿@model AnInterestingWebSiteName.Classes.FirmaIndexViewClass
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+}
+<head>
+    <link href="~/Assets/Css/FirmaIndexCss.css" rel="stylesheet" />
+</head>
+
+<div class="tasiyici">
+    <div class="arkaPlan bg-image-blur" style="background-image: url(/Fotograflar/FirmaFotograflari/@Model.Firma.FirmaArkaPlanResmi)">
+    </div>
+    <div class="arkaPlan" style="background-image: url(/Fotograflar/FirmaFotograflari/@Model.Firma.FirmaArkaPlanResmi)">
+        <img class="firmaProfilResmi" src="~/Fotograflar/FirmaFotograflari/@Model.Firma.FirmaResmi" alt="Firma Profil Resmi" />
+
+        <div class="firmaAd">
+            @Model.Firma.Ad
+            <br />
+            @Html.Raw(Model.Firma.FirmaHakkinda)
+        </div>
+    </div>
+
+    <div class="list">
+        @foreach (var item in Model.Urunler)
+        {
+            <a style="color: #8EB7ED;float:left;" href="@Url.Action("Index", "UserUrun", new {ID=item.ID})">
+                <div class="listItem">
+                    <img class="itemOyunIkon" src="~/Fotograflar/UrunFotograflari/@item.TamResimYolu" alt="Alternate Text" />
+                    <div class="itemOyunInfo">
+                        @item.Ad
+                        <small style="word-wrap:break-word;float:right;">@Html.Raw(item.Aciklama)</small>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

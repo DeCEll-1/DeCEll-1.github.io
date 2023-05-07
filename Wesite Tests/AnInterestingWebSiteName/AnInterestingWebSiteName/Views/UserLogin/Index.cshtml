@@ -1,0 +1,61 @@
+﻿@model AnInterestingWebSiteName.Models.Kullanici
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Assets/Css/LayoutPageCss.css" rel="stylesheet" />
+    <link href="~/Assets/Css/Logincss.css" rel="stylesheet" />
+</head>
+<body class="gradientBackground">
+    <div class="tasiyici">
+        @using (Html.BeginForm())
+        {
+            <div class="items">
+                Giriş Ekranı
+            </div>
+
+            <div class="items">
+                @Html.LabelFor(model => model.Mail)
+                <br />
+                @Html.EditorFor(model => model.Mail)
+                <br />
+                @Html.ValidationMessageFor(model => model.Mail)
+            </div>
+
+            <div class="items">
+                @Html.LabelFor(model => model.Sifre)
+                <br />
+                @Html.EditorFor(model => model.Sifre)
+                <br />
+                @Html.ValidationMessageFor(model => model.Sifre)
+            </div>
+
+            <div class="items">
+                <input type="submit" name="submit" value="Giriş" />
+            </div>
+
+            <div class="items">
+                <a class="topBarGirisButon" style="margin:0; position: static;" href="@Url.Action("Create","User")">Hesap Oluşturun</a>
+                <a class="topBarGirisButon" style=" margin-left: 102px; position: static; " href="@Url.Action("Index","Liste")">Mağazaya Geri Dönün</a>
+            </div>
+
+            <div style="padding:8px;" class="items">
+                @if (ViewBag.message != null)
+                {
+                    @ViewBag.message;
+                }
+                @if (TempData["message"] != null)
+                {
+                    @TempData["message"];
+                }
+            </div>
+        }
+    </div>
+</body>
+</html>

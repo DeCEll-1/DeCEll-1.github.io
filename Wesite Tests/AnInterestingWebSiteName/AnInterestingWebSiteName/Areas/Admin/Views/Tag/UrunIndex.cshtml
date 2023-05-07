@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AnInterestingWebSiteName.Models.TagsVeUrunAraClass>
+@{
+    ViewBag.Title = "UrunIndex";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+    AnInterestingWebSiteName.Models.AnInterestingWebSiteName_Model db = new AnInterestingWebSiteName.Models.AnInterestingWebSiteName_Model();
+}
+
+
+<div class="form">
+
+    <div class="baslik">
+        @ViewBag.urunad'ın Etiket Listesi
+
+        <a href="@Url.Action("Index","Urun")" style="margin-left:20px;">Ürün Listesi</a>
+
+        <a href="@Url.Action("UrunTagCreate","Tag",new {ID = ViewBag.etcints1})" style="margin-left:20px;">Etiket Ekle</a>
+
+        @if (ViewBag.message != null)
+        {
+            @ViewBag.message
+        }
+    </div>
+
+    <table class="table">
+        <tr><
+            <th>@Html.DisplayNameFor(model => model.Tag_ID)</th>
+            <th>@Html.DisplayNameFor(model => model.Tag.Ad)</th>
+            <th>Seçenekler</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Tag_ID</td>
+                <td>@db.Tags.Find(item.Tag_ID).Ad</td>
+                <td style="text-align:center;">
+                    <a href="@Url.Action("DeleteUrun","Tag",new {ID=item.ID})">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

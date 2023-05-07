@@ -1,0 +1,144 @@
+﻿@model AnInterestingWebSiteName.Classes.MagazaList
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+}
+<head>
+    <link href="~/Assets/Css/UserView.css" rel="stylesheet" />
+</head>
+
+<div class="tasiyici">
+    <div class="listBar">
+        @*<a href="#">
+                <div style="text-decoration: underline; text-decoration-color: #7ECBD3;" class="listBarItems">
+                    <label style="cursor:pointer;">Etiket Seçimi Ekranı</label>
+                </div>
+            </a>*@
+        <div class="searchBar listBarItems">
+            @using (Html.BeginForm())
+            {
+                <label>Arama</label>
+                <br />
+                <input class="searchBarText" value="@ViewBag.searchBarText" type="text" name="searchBarText" placeholder="Arama" /><input class="buyutec" type="image" src="~/Fotograflar/Etc/Buyutec.png" name="submit" value="" />
+            }
+        </div>
+    </div>
+    <div class="list">
+
+        @if (Model.Urunler != null)
+        {
+
+            foreach (var item in Model.Urunler)
+            {
+                <a href="@Url.Action("Index", "UserUrun",new {ID = item.ID} )">
+
+                    <table class="tableOyun" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th>
+                                <img class="image" src="~/Fotograflar/UrunFotograflari/@item.TamResimYolu" alt="Oyun Resmi" />
+                                <div class="urunAdFiyatDiv">
+
+                                    <label style="float:left;padding-left:3px;">@item.Ad</label>
+                                    @if (item.Indirim > 0)
+                                    {
+                                        <div style="text-decoration:dashed;">
+                                            <label style="text-decoration:dashed" class="safFiyat fiyat">@item.Fiyat</label>
+                                        </div>
+
+                                        <br />
+
+                                        <label class="indirim">-@item.Indirim%</label>
+                                        if (item.Indirim == 100)
+                                        {
+                                            <label class="indirimliFiyat">Bedava</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="indirimliFiyat">@item.IndirimliFiyat</label>
+                                        }
+                                    }
+                                    else if (item.Fiyat==0)
+                                    {
+                                <label class="indirimliFiyat">Bedava</label>
+                                    }
+                                    else
+                                    {
+                                        <label class=" fiyat">@item.Fiyat</label>
+                                    }
+
+                                </div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align:center">
+
+                                <div class="hoverItem">
+                                    @item.Ad
+                                </div>
+
+                                <div class="hoverItem">
+                                    @try
+                                    {
+                                        if (Model.OyunResimleri.Count(s => s.Oyun_ID == item.ID) > 0)
+                                        {
+                                            <img class="image" style="width:280px;" src="~/Fotograflar/UrunFotograflari/@Model.OyunResimleri.FirstOrDefault(s => s.Oyun_ID == item.ID).Resim" alt="Oyun Fotoğrafı" />
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+                                </div>
+
+                                <div class="hoverItem">
+                                    @item.Aciklama
+                                </div>
+
+                                <div class="hoverItem">
+
+                                    <label>Etiketler:</label>
+                                    <br />
+
+                                    @if (Model.TagsVeUrunAraClass.FirstOrDefault(s => s.Urun_ID == item.ID) != null)
+                                    {
+
+
+                                        int i = 0;
+
+                                        foreach (var itemtvuac in Model.TagsVeUrunAraClass.Where(s => s.Urun_ID == item.ID))
+                                        {
+
+                                            foreach (var itemt in @Model.Tag.Where(s => s.ID == itemtvuac.Tag_ID))
+                                            {
+
+                                                if (i > 0)
+                                                {
+                                                    <label>,</label>
+                                                }
+                                                <label>&nbsp;</label>@itemt.Ad;
+
+
+
+                                            }
+                                            i++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label>Etiket Bulunmamaktadır</label>
+                                    }
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+            }
+        }
+
+    </div>
+
+</div>

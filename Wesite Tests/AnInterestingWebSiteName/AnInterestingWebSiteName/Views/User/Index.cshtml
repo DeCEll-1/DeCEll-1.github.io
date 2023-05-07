@@ -1,0 +1,71 @@
+﻿@model AnInterestingWebSiteName.Classes.UserViewClass
+@using AnInterestingWebSiteName.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+    Kullanici k = null;
+    if (Session["userSession"] != null)
+    {
+        k = (Kullanici)Session["userSession"];
+    }
+}
+
+<head>
+    <link href="~/Assets/Css/UserCss.css" rel="stylesheet" />
+</head>
+
+<div class="tasiyici">
+    <div class="leftSide">
+        <div class="userName">
+            @Model.Kullanici.Ad
+        </div>
+        @if (Model.Benim == true)
+        {
+            <a class="aciklamaDuzenle" href="@Url.Action("Edit","User")">Açıklamayı Düzenle</a>
+        }
+
+        <div class="aciklama">
+            @Html.Raw(Model.Kullanici.Aciklama)
+
+            <div class="oyunlar">
+                kullanıcın Sahip Olduğu Oyunlar:
+                @if (Model.Urunler != null)
+                {
+                    foreach (var item in Model.Urunler)
+                    {
+                        <a style="color: #8EB7ED;" href="@Url.Action("Index", "UserUrun", new {ID=item.ID})">
+                            <div class="urun">
+                                <img class="urunFotograf" src="~/Fotograflar/UrunFotograflari/@item.TamResimYolu" alt="Alternate Text" />
+                                <div class="urunInfo">
+                                    @item.Ad
+                                    <small>@Html.Raw(item.Aciklama)</small>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                }
+                else
+                {
+                    <br />
+                    <label>Kullanıcı Henüz Bir Ürüne Sahip Değil</label>
+                }
+            </div>
+        </div>
+
+    </div>
+    <div class="rightSide">
+        @if (Model.Benim == true)
+        {
+            <a class="aciklamaDuzenle" href="@Url.Action("Edit","User")">
+                <img class="kullaniciFotografi" src="~/Fotograflar/KullaniciFotograflari/@Model.Kullanici.ProfilResmi" alt="Kullanıcı Fotoğrafı" />
+                <div class="textAlign">
+                    Düzenle
+                </div>
+            </a>
+        }
+        else
+        {
+            <img class="kullaniciFotografi" src="~/Fotograflar/KullaniciFotograflari/@Model.Kullanici.ProfilResmi" alt="Kullanıcı Fotoğrafı" />
+        }
+    </div>
+</div>

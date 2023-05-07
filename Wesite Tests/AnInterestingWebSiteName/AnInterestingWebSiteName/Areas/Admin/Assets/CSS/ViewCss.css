@@ -1,0 +1,161 @@
+﻿.form {
+    border: 3px solid #2F4F32;
+    width: 100%;
+    min-height: 300px;
+    background-color: #243830;
+}
+
+.baslik {
+    width: 91.25%;
+    height: 15px;
+    background-color: #2F4C4F;
+    color: #7ECBD3;
+    margin: 17.5px;
+    padding: 17.5px;
+}
+
+    .baslik label {
+        float: right;
+    }
+
+.floatDel {
+    float: none;
+}
+
+.baslik a {
+    text-decoration: underline;
+    color: #7ECBD3;
+}
+
+.table {
+    width: 100%;
+    border: 2px solid #2F4C4F;
+    color: #7DC2A6;
+}
+
+    .table tr {
+        border: 1px solid #2F4C4F;
+    }
+
+        .table tr th {
+            padding: 5px;
+            margin: 2px;
+            border: 1px solid #2F4C4F;
+            min-height: 71px;
+        }
+
+        .table tr td {
+            border: 1px solid #2F4C4F;
+            min-height: 71px;
+            padding: 5px;
+            margin: 2px;
+            word-wrap: break-word;
+            max-width: 100px;
+        }
+
+.imageTD {
+    max-width: 100px;
+    min-width: 100px;
+}
+
+.image {
+    height: 71px;
+    width: 100px;
+}
+
+    .image:hover {
+        width: max-content !important;
+        height: max-content !important;
+        max-width: 600px;
+        max-height: 600px;
+        z-index: 999;
+        position: absolute;
+        margin-top: -37px;
+    }
+
+
+.table tr td a {
+    color: #7DC2A6;
+    text-decoration: underline;
+}
+
+.objectsItems {
+    color: #7DC2A6;
+}
+
+    .objectsItems input[type=text], input[type=number] {
+        background-color: #293545;
+        border-color: #7ECBD3;
+        color: #8EB7ED;
+        width: 100%;
+        min-height: 18px;
+        outline: none;
+    }
+
+    .objectsItems input[type=submit]:hover {
+        cursor: pointer;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#8eb7ed+0,293545+20,293545+80,8eb7ed+100 */
+        background: rgb(142,183,237); /* Old browsers */
+        background: -moz-linear-gradient(45deg, rgba(142,183,237,1) 0%, rgba(41,53,69,1) 20%, rgba(41,53,69,1) 80%, rgba(142,183,237,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, rgba(142,183,237,1) 0%,rgba(41,53,69,1) 20%,rgba(41,53,69,1) 80%,rgba(142,183,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, rgba(142,183,237,1) 0%,rgba(41,53,69,1) 20%,rgba(41,53,69,1) 80%,rgba(142,183,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+    .objectsItems input[type=submit] {
+        background-color: #293545;
+        border-color: #7ECBD3;
+        color: #8EB7ED;
+        width: 100%;
+        min-height: 30px;
+        outline: none;
+    }
+
+    .objectsItems a {
+        color: #7DC2A6;
+        text-decoration: underline;
+    }
+
+.objectsItem input[type="file"] {
+    display: none;
+}
+
+.CKEditor {
+    background-color: #293545;
+    border-color: #7ECBD3;
+    color: #8EB7ED;
+    width: 100%;
+    min-height: 18px;
+    outline: none;
+}
+
+.dropDown {
+    background-color: #293545;
+    border-color: #7ECBD3;
+    color: #8EB7ED;
+}
+
+.objectsItem .dosyaYukle {
+    background-color: #293545 !important;
+    border-color: #7ECBD3 !important;
+    color: #8EB7ED !important;
+    min-height: 10px;
+    width: 100%;
+    display: inline-block !important;
+    cursor: pointer;
+}
+
+
+
+.objectsItems textarea {
+    background-color: #293545;
+    border-color: #7ECBD3;
+    color: #8EB7ED;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 30px;
+    outline: none;
+}
+
+.objectsItem {
+    margin: 20px;
+}

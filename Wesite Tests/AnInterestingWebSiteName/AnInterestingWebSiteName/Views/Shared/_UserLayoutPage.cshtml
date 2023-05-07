@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+
+@using AnInterestingWebSiteName.Models;
+@{
+    bool giris = false;
+    Kullanici k = null;
+    if (Session["userSession"] != null)
+    {
+        k = (Kullanici)Session["userSession"];
+        giris = true;
+        Session.Timeout = 120;
+    }
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Assets/Css/RenkPaleti.css" rel="stylesheet" />
+    <link href="~/Assets/Css/LayoutPageCss.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="gradientTopBar">
+
+        <div class="topBar">
+
+            @if (TempData["message"] != null)
+            {
+                <label class="listBarTempDataMessage">@Html.Raw(TempData["message"])</label>
+            }
+            @if (ViewBag.message != null)
+            {
+                <label class="listBarViewBagMessage">@ViewBag.message</label>
+            }
+
+            <div class="objectsItem" style="padding:0; margin:0;">
+                <a href="@Url.Action("Index","Liste")">
+                    <img style="width:80px;height:80px;" src="~/Fotograflar/UrunFotograflari/Logo.png" />
+                </a>
+            </div>
+
+            <div class="objectsItem">
+
+                <table class="tablea" cellpadding="0" cellspacing="0">
+                    <tr style="visibility:visible!important">
+                        <th>
+                            <a style="font-size:19pt!important;" href="@Url.Action("Index","Liste")">
+                                <label>Mağaza</label>
+                            </a>
+                        </th>
+                    </tr>
+                    @* - *@
+                    <tr>
+                        <td class="araDiv">
+                            <a href="@Url.Action("TagIndex","Liste")">
+                                <label class="label"><label>Etiketler</label></label>
+                            </a>
+                        </td>
+                    </tr>
+                    @* - *@
+                    <tr>
+                        <td class="araDiv">
+                            <a href="@Url.Action("DoPay","Pay")">
+                                <label class="label"><label>Sepet</label></label>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            @* /// *@
+            <div class="objectsItem">
+
+                <table class="tablea" style="margin-left:90px;" cellpadding="0" cellspacing="0">
+                    <tr style="visibility:visible!important">
+                        <th>
+                            <a style="font-size:19pt!important;" href="@Url.Action("Liste","User")">
+                                <label>Topluluk</label>
+                            </a>
+                        </th>
+                    </tr>
+                    @* - *@
+                    <tr>
+                        <td class="araDiv">
+                            <a href="@Url.Action("Liste","User")">
+                                <label>Kullanıcılar</label>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            @if (!giris)
+            {
+                <div class="topBarGirisButon">
+                    <a href="@Url.Action("Index","UserLogin")">Giriş Yapın</a>
+                </div>
+                <div style="margin-left:590px;" class="topBarGirisButon">
+                    <a href="@Url.Action("Create","User")">Hesap Oluşturun</a>
+                </div>
+            }
+            else
+            {
+
+                <div class="userInfo">
+                    <a href="@Url.Action("Index", "User",new {ID = 0})">
+                        <div >
+                            <img src="~/Fotograflar/KullaniciFotograflari/@k.ProfilResmi" alt="Profil Fotoğrafı" />
+                        </div>
+                    </a>
+                    <label class="userInfoAd">@k.Ad</label>
+                    <br />
+                    <a class="logOut" href="@Url.Action("LogOut","UserLogin")">Çıkış</a>
+                </div>
+            }
+
+            @* /// *@
+            <div class="objectsItem">
+                @if (giris)
+                {
+
+                    <table style="margin-left:80px;" class="tablea" cellpadding="0" cellspacing="0">
+                        <tr style="visibility:visible!important">
+                            <th>
+                                <a style="font-size:19pt!important;" href="@Url.Action("Index", "User")">
+                                    <label>Profil</label>
+                                </a>
+                            </th>
+                        </tr>
+                        @* - *@
+                        <tr>
+                            <td class="araDiv">
+                                <a href="@Url.Action("Index", "User")">
+                                    <label>Profil Sayfası</label>
+                                </a>
+                            </td>
+                        </tr>
+                        @* - *@
+                        <tr>
+                            <td class="araDiv">
+                                <a href="@Url.Action("Index","Kutuphane")">
+                                    <label>Kütüphane</label>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="araDiv" style="height: 3px;">
+
+    </div>
+
+    <div class="gradientBackground">
+        <div class="main">
+            @RenderBody()
+        </div>
+    </div>
+
+
+</body>
+</html>

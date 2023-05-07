@@ -1,0 +1,142 @@
+﻿@model AnInterestingWebSiteName.Models.Urunler
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+
+}
+<head>
+    <script src="@Url.Content("~/ckeditor/ckeditor.js")" type="text/javascript"></script>
+</head>
+
+<div class="form">
+    <div class="baslik">
+        Urun Düzenle
+
+        <a href="@Url.Action("Index","Urun")" style="margin-left:20px;">Ürünlerin Listesi</a>
+
+        @if (ViewBag.message != null)
+        {
+            <label>@ViewBag.message</label>
+        }
+    </div>
+
+    <div class="objectsItems">
+
+        @using (Html.BeginForm("Edit", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="objectsItem">
+                Yayıncı:
+                <br />
+                @Html.DropDownListFor(model => model.Yayinci_ID, new SelectList(ViewBag.Yayıncı, "Value", "Text"), htmlAttributes: new { @class = "dropDown" })
+            </div>
+
+            <div class="objectsItem">
+                Yapimci:
+                <br />
+                @Html.DropDownListFor(model => model.Yapimci_ID, new SelectList(ViewBag.Yapimci, "Value", "Text"), htmlAttributes: new { @class = "dropDown" })
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Ad):
+                <br />
+                @Html.EditorFor(model => model.Ad)
+                <br />
+                @Html.ValidationMessageFor(model => model.Ad)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Aciklama):
+                <br />
+                @Html.EditorFor(model => model.Aciklama)
+                <script>
+                    CKEDITOR.replace('Aciklama', {
+                        customConfig: '/Areas/Admin/Assets/CKEditorConfig/AdminCKEditor_config.js'
+                    });
+                </script>
+                <br />
+                @Html.ValidationMessageFor(model => model.Aciklama)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.AciklamaAlt1):
+                <br />
+                @Html.EditorFor(model => model.AciklamaAlt1)
+                <script>
+                    CKEDITOR.replace('AciklamaAlt1', {
+                        customConfig: '/Areas/Admin/Assets/CKEditorConfig/AdminCKEditor_config.js'
+                    });
+                </script>
+                <br />
+                @Html.ValidationMessageFor(model => model.AciklamaAlt1)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.AciklamaAlt2):
+                <br />
+                @Html.EditorFor(model => model.AciklamaAlt2)
+                <script>
+                    CKEDITOR.replace('AciklamaAlt2', {
+                        customConfig: '/Areas/Admin/Assets/CKEditorConfig/AdminCKEditor_config.js'
+                    });
+                </script>
+                <br />
+                @Html.ValidationMessageFor(model => model.AciklamaAlt2)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.AciklamaAlt3):
+                <br />
+                @Html.EditorFor(model => model.AciklamaAlt3)
+                <script>
+                    CKEDITOR.replace('AciklamaAlt3', {
+                        customConfig: '/Areas/Admin/Assets/CKEditorConfig/AdminCKEditor_config.js'
+                    });
+                </script>
+                <br />
+                @Html.ValidationMessageFor(model => model.AciklamaAlt3)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Fiyat)
+                <br />
+                @Html.EditorFor(model => model.Fiyat)
+                <br />
+                @Html.ValidationMessageFor(model => model.Fiyat)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Indirim)
+                <br />
+                @Html.EditorFor(model => model.Indirim)
+                <br />
+                @Html.ValidationMessageFor(model => model.Indirim)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.IkonYolu) <small>231px X 87px</small>
+                <br />
+                <input type="file" name="icon" value="Dosya Yükle" class="dosyaYukle" />
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.TamResimYolu)
+                <br />
+                <input type="file" name="fullImage" value="Dosya Yükle" class="dosyaYukle" />
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.ArkaPlanResmi)
+                <br />
+                <input type="file" name="arkaPlanResmi" value="Dosya Yükle" class="dosyaYukle" />
+            </div>
+
+            <div class="objectsItem">
+                <input type="submit" value="Ürünü Düzenle" />
+            </div>
+        }
+
+    </div>
+
+</div>

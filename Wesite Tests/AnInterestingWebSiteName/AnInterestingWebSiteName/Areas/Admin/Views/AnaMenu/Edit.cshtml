@@ -1,0 +1,99 @@
+﻿@model AnInterestingWebSiteName.Models.Yonetici
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<div class="form">
+
+    <div class="baslik">
+        Kullanıcı Ayarları
+
+        @if (ViewBag.message != null)
+        {
+            <label>@ViewBag.message</label>
+        }
+    </div>
+
+    <div class="objectsItems">
+
+        @using (Html.BeginForm("Edit", "AnaMenu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken();
+
+            @Html.HiddenFor(model=>model.ID)
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Isim)
+                <br />
+                @Html.EditorFor(model => model.Isim)
+                <br />
+                @Html.ValidationMessageFor(model => model.Isim)
+            </div>
+
+
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.SoyIsim)
+                <br />
+                @Html.EditorFor(model => model.SoyIsim)
+                <br />
+                @Html.ValidationMessageFor(model => model.SoyIsim)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.KullaniciAdi)
+                <br />
+                @Html.EditorFor(model => model.KullaniciAdi)
+                <br />
+                @Html.ValidationMessageFor(model => model.KullaniciAdi)
+            </div>
+
+            <div class="objectsItem">
+                Yetki:
+                <br />
+                @if (Model.YoneticiTur.Yetki > 1)
+                {
+                    <label>Yetkinizi Değiştirmek İçin Yeterli Yetkiniz Yok</label>
+                }
+                else
+                {
+                    @Html.LabelFor(model => model.YoneticiTur_ID)
+                    <br />
+                    @Html.DropDownList("YoneticiTur_ID", null, htmlAttributes: new { @class = "dropDown" })
+                }
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.ProfilFotografi)<small>Gif Kullanablirsiniz</small>
+                <br />
+                <input type="file" name="pfp" value="Profil Fotoğrafı" class="dosyaYukle" />
+                <br />
+                Profil Fotoğrafımı Sıfırla
+                <input type="checkbox" name="pfpcb" />
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Sifre)
+                <br />
+                @Html.EditorFor(model => model.Sifre)
+                <br />
+                @Html.ValidationMessageFor(model => model.Sifre)
+            </div>
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Mail)
+                <br />
+                @Html.EditorFor(model => model.Mail)
+                <br />
+                @Html.ValidationMessageFor(model => model.Mail)
+            </div>
+
+            <div class="objectsItem">
+                <input type="submit" value="Profili Güncelle" />
+            </div>
+
+        }
+    </div>
+
+</div>

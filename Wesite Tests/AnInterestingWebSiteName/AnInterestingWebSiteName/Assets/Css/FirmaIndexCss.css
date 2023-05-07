@@ -1,0 +1,83 @@
+﻿.tasiyici {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    /*border:2px solid #5c5c5c;*/
+}
+
+.arkaPlan {
+    width: 1000px;
+    height: 187px;
+    /*background-size:1000px 187px;*/
+    z-index: 999;
+    position: relative;
+}
+
+/*https://stackoverflow.com/questions/24709915/blur-the-edges-of-an-image-or-background-image-with-css*/
+/* both DIVs have the same image */
+.bg-image-blur, .bg-image {
+    background-image: url('http://lorempixel.com/200/200/city/9');
+    z-index: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 163px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 1000px;
+    height: 187px;
+}
+/* blur the background, to make blurred edges that overflow the unblurred image that is on top */
+.bg-image-blur {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+}
+
+.firmaProfilResmi {
+    height: 92px;
+    width: 92px;
+    float: left;
+    margin: 46px 0 46px 46px;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.firmaAd {
+    float: left;
+    color: #8EB7ED;
+    padding: 28px 20px 28px 5px;
+    margin: 46px 0 46px 0px;
+    background-color: #293545fa;
+    border-radius: 0px 50px 50px 0;
+}
+
+.list {
+    width: 1000px;
+    background-color: #293545;
+    margin-top: 70px;
+    border: 1px solid #2F4C4F;
+}
+
+.listItem {
+    height:205px;
+    background-color: #293545;
+    color: #8EB7ED;
+    padding: 5px;
+    float:left;
+}
+
+.itemOyunIkon {
+    height: 205px;
+    width: 450px;
+    float: left;
+}
+
+.itemOyunInfo {
+    word-wrap:break-word;
+    width:500px;
+    float: right;
+}

@@ -1,0 +1,91 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../../../fotograflar/arkaplan/bg.jpeg');
+}
+
+
+.tasiyici {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    height: 300px;
+    width: 400px;
+    background-color: #2F4F32;
+}
+
+.content {
+    min-width: auto;
+    min-height: auto;
+    background-color: #2F4C4F;
+    border-radius: 5px;
+    min-height: 295px;
+    border: 1px solid #293545;
+}
+
+    .content .baslik {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        background-color: #2F4C4F;
+        color: #7ECBD3;
+        border-bottom: 10px solid #293545;
+    }
+
+        .content .baslik h4 {
+            font-size: 22px;
+            padding: 10px;
+            margin: 0px;
+        }
+
+
+    .content .ekran {
+        margin: 3px;
+    }
+
+        .content .ekran .item {
+            color: #7DC2A6;
+            border: 1px solid #8EB7ED;
+            background-color: #243830;
+            padding:10px;
+            margin:10px 10px;
+
+        }
+
+        .content .ekran .item input[type=text], input[type=number] {
+            background-color: #293545;
+            border-color: #7ECBD3;
+            color: #8EB7ED;
+            width: 98%;
+            min-height: 18px;
+            outline: none;
+        }
+
+            .content .ekran .item input[type=submit] {
+                background-color: #293545;
+                border-color: #7ECBD3;
+                color: #8EB7ED;
+                width: 98%;
+                min-height: contain;
+                outline: none;
+            }
+
+            .content .ekran .item input[type=submit]:hover {
+                cursor:pointer;
+                /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#8eb7ed+0,293545+20,293545+80,8eb7ed+100 */
+                background: rgb(142,183,237); /* Old browsers */
+                background: -moz-linear-gradient(45deg, rgba(142,183,237,1) 0%, rgba(41,53,69,1) 20%, rgba(41,53,69,1) 80%, rgba(142,183,237,1) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(45deg, rgba(142,183,237,1) 0%,rgba(41,53,69,1) 20%,rgba(41,53,69,1) 80%,rgba(142,183,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(45deg, rgba(142,183,237,1) 0%,rgba(41,53,69,1) 20%,rgba(41,53,69,1) 80%,rgba(142,183,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            }
+
+
+/*.content .ekran .item textarea {
+    background-color: #293545;
+    border-color: #7ECBD3;
+    color: #8EB7ED;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 30px;
+    outline: none;
+}
+*/

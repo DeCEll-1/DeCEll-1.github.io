@@ -1,0 +1,39 @@
+﻿@model AnInterestingWebSiteName.Models.Tag
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<div class="form">
+    <div class="baslik">
+        Etiket Ekle
+
+        <a href="@Url.Action("Index","Tag")" style="margin-left:20px;">Etiket Listesi</a>
+
+        @if (ViewBag.message != null)
+        {
+           <label>@ViewBag.message</label> 
+        }
+    </div>
+
+    <div class="objectsItems">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+
+            <div class="objectsItem">
+                @Html.LabelFor(model => model.Ad)
+                <br />
+                @Html.EditorFor(model => model.Ad)
+                <br />
+                @Html.ValidationMessageFor(model => model.Ad)
+            </div>
+
+            <div class="objectsItem">
+                <input type="submit" name="submit" value="Etiket Ekle" />
+            </div>
+
+        }
+    </div>
+</div>

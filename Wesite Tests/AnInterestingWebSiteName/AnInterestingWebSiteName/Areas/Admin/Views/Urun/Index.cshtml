@@ -1,0 +1,139 @@
+﻿@model IEnumerable<AnInterestingWebSiteName.Models.Urunler>
+@{
+    ViewBag.Title = "a";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+    AnInterestingWebSiteName.Models.AnInterestingWebSiteName_Model db = new AnInterestingWebSiteName.Models.AnInterestingWebSiteName_Model();
+}
+<div class="form">
+    <div class="baslik">
+        Ürun Listesi
+        <a href="@Url.Action("Create","Urun")" style="margin-left:20px;">Ürün Ekle</a>
+
+        <a href="@Url.Action("Index","Urun",new {a=1})" style="margin-left:20px;">Ekleme Zamanına Göre Sırala</a>
+
+        <a href="@Url.Action("Index","Urun",new {a=0})" style="margin-left:20px;">Alfabeye Göre Sırala</a>
+
+        @if (ViewBag.message != null)
+        {
+            <label>@ViewBag.message</label>
+        }
+    </div>
+    <div>
+        <table cellpadding="0" cellspacing="0" class="table">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ID)</th>
+                <th>@Html.DisplayNameFor(model => model.Ad)</th>
+                <th>Yapımcı Adı</th>
+                <th>Yayıncı Adı</th>
+                <th>@Html.DisplayNameFor(model => model.ArkaPlanResmi)</th>
+                <th>@Html.DisplayNameFor(model => model.TamResimYolu)</th>
+                <th>@Html.DisplayNameFor(model => model.IkonYolu)</th>
+                <th>@Html.DisplayNameFor(model => model.Aciklama)</th>
+                <th>@Html.DisplayNameFor(model => model.AciklamaAlt1)</th>
+                <th>@Html.DisplayNameFor(model => model.AciklamaAlt2)</th>
+                <th>@Html.DisplayNameFor(model => model.AciklamaAlt3)</th>
+                <th>Seçenekler</th>
+                <th>Sil</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Ad</td>
+
+                    <td>@db.Firmas.FirstOrDefault(s => s.ID == item.Yayinci_ID).Ad</td>
+                    <td>@db.Firmas.FirstOrDefault(s => s.ID == item.Yapimci_ID).Ad</td>
+
+                    <td class="imageTD">
+                        <img class="image" src="~/Fotograflar/UrunFotograflari/@item.ArkaPlanResmi" alt="Tam Resim" />
+                    </td>
+
+                    <td class="imageTD">
+                        <img class="image" src="~/Fotograflar/UrunFotograflari/@item.TamResimYolu" alt="Tam Resim" />
+                    </td>
+
+                    <td class="imageTD">
+                        <img class="image" src="~/Fotograflar/UrunFotograflari/@item.IkonYolu" alt="İkon" />
+                    </td>
+
+                    <td>
+                        @if (item.Aciklama == null || item.Aciklama.Length > 50)
+                        {
+
+                            if (item.Aciklama != null)
+                            {
+                                @Html.Raw(item.Aciklama).ToString().Substring(0, 50);
+                            }
+                            <label>...</label>
+                        }
+                        else
+                        {
+                            @Html.Raw(item.Aciklama)
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.AciklamaAlt1 == null || item.AciklamaAlt1.Length > 50)
+                        {
+
+                            if (item.AciklamaAlt1 != null)
+                            {
+                                @Html.Raw(item.AciklamaAlt1).ToString().Substring(0, 50);
+                            }
+                            <label>...</label>
+                        }
+                        else
+                        {
+                            @Html.Raw(item.AciklamaAlt1)
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.AciklamaAlt2 == null || item.AciklamaAlt2.Length > 50)
+                        {
+
+                            if (item.AciklamaAlt2 != null)
+                            {
+                                @Html.Raw(item.AciklamaAlt2).ToString().Substring(0, 50);
+                            }
+                            <label>...</label>
+                        }
+                        else
+                        {
+                            @Html.Raw(item.AciklamaAlt2)
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.AciklamaAlt3 == null || item.AciklamaAlt3.Length > 50)
+                        {
+
+                            if (item.AciklamaAlt3 != null)
+                            {
+                                @Html.Raw(item.AciklamaAlt3).ToString().Substring(0, 50);
+                            }
+                            <label>...</label>
+                        }
+                        else
+                        {
+                            @Html.Raw(item.AciklamaAlt3)
+                        }
+                    </td>
+
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("Edit","Urun",new {ID = item.ID})">Düzenle</a>
+                        <br />
+                        <a href="@Url.Action("Index","OyunFotograf",new {ID = item.ID})">Fotoğrafları</a>
+                        <br />
+                        <a href="@Url.Action("UrunIndex","Tag",new {ID = item.ID})">Etiketleri</a>
+                        <br />
+                        <a target="_blank" href="@Url.Action("Index","UserUrun",new {ID = item.ID,area=""})"><small>Ürünü Görün</small></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete","Urun",new {ID = item.ID})">Sil</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

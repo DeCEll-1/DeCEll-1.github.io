@@ -1,0 +1,96 @@
+﻿@using AnInterestingWebSiteName.Models
+@{ 
+    Yonetici y = Session["adminSession"] as Yonetici;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <link href="~/Areas/Admin/Assets/CSS/LayoutPageCss.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Assets/CSS/ViewCss.css" rel="stylesheet" />
+    <link href="~/Assets/Css/RenkPaleti.css" rel="stylesheet" />
+</head>
+<body>
+
+    @* Top Bar *@
+    <div class="topBar">
+        <div class="userDiv">
+
+            <label class="kullaniciInfo">
+            Günaydın @y.KullaniciAdi
+            </label>
+        </div>
+    </div>
+
+
+    <div class="leftBar">
+        <div class="kullaniciBar">
+            <a href="@Url.Action("Index","AnaMenu")">Profil</a>
+            <img class="profilFotografi" src="~/Fotograflar/KullaniciFotograflari/@y.ProfilFotografi" alt="Profil Fotoğrafı" />
+            <br />
+            <a href="@Url.Action("Edit","AnaMenu")">>   Ayarlar</a>
+            <br />
+            <a style="color: #C5F19F" href="@Url.Action("LogOut","Login")">>    Çıkış</a>
+        </div>
+        <div class="menuBar">
+            <ul>
+
+                <!-- #region ana menu -->
+
+                <a href="@Url.Action("Index","AnaMenu")">
+                <li style="color:#C5F19F">Ana Menü</li></a>
+
+                <!-- #endregion -->
+                <!-- #region Urun-->
+                <a href="@Url.Action("Index","Urun")">
+                <li style="color:#C5F19F">Urunler</li></a>
+
+                <a href="@Url.Action("Index","Urun")">
+                <li>> &nbsp;&nbsp;&nbsp;Urunlerin Listesi</li></a>
+
+                <a href="@Url.Action("Create","Urun")">
+                <li>> &nbsp;&nbsp;&nbsp;Urun Ekle</li></a>
+                <!-- #endregion -->
+                <!-- #region Firma-->
+
+                <a href="@Url.Action("Index","Firma")">
+                <li style="color:#C5F19F">Firmalar</li></a>
+
+                <a href="@Url.Action("Index","Firma")">
+                <li>> &nbsp;&nbsp;&nbsp;Firma Listesi</li></a>
+
+                <a href="@Url.Action("Create","Firma")">
+                <li>> &nbsp;&nbsp;&nbsp;Firma Ekle</li></a>
+
+                <!-- #endregion -->
+                <!-- #region Fotoğraf Yolları -->
+
+                <a href="@Url.Action("Index","OyunFotograf")">
+                <li style="color:#C5F19F">Oyun Fotoğrafları</li></a>
+
+                <a href="@Url.Action("Create","OyunFotograf")">
+                <li>> &nbsp;&nbsp;&nbsp;Fotoğraf Ekle</li></a>
+                <!-- #endregion -->
+                <!-- #region Tags -->
+                <a href="@Url.Action("Index","Tag")">
+                <li style="color:#C5F19F">Etiketler</li></a>
+
+                <a href="@Url.Action("Index","Tag")">
+                <li>> &nbsp;&nbsp;&nbsp;Etiket Listesi</li></a>
+
+                <a href="@Url.Action("Create","Tag")">
+                <li>> &nbsp;&nbsp;&nbsp;Etiket Ekle</li></a>
+                <!-- #endregion -->
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="body">
+        @RenderBody()
+    </div>
+</body>
+</html>

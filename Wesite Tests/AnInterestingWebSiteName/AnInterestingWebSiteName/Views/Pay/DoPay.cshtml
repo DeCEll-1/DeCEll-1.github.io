@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AnInterestingWebSiteName.Models.Urunler>
+@{
+    ViewBag.Title = "Sepet";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+}
+<head>
+    <link href="~/Assets/Css/SepetCss.css" rel="stylesheet" />
+</head>
+
+
+<div class="sepetTasiyici">
+    <div class="textAlign">
+        <a class="sepetiBosalt" href="@Url.Action("Empty","Pay")">Sepeti Boşalt</a>
+    </div>
+    @if (Model != null)
+    {
+        <div>
+            @foreach (var item in Model)
+            {
+                <div class="sepetItem">
+                    <div class="sepetFotografi">
+                        <img class="sepetFotografi" src="~/Fotograflar/UrunFotograflari/@item.TamResimYolu" alt="İkon Resmi" />
+                    </div>
+                    <div class="sepetUrunInfo">
+                        <label style="float:right;">
+                            @item.Ad
+                        </label>
+                        <br />
+                        <div style="margin-top:20px;">
+                            @if (item.Indirim > 0)
+                            {
+                                <label style="color: #BEEE11; float: left; ">@item.Fiyat<label>&nbsp;TL</label></label>
+                                <label style="color: #BEEE11;float:right; ">@item.IndirimliFiyat<label>&nbsp;TL</label></label>
+                            }
+                            else
+                            {
+                                <label>@item.Fiyat</label>
+                            }
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <a style="float: right; color: #7DC2A6;text-decoration:none;" href="@Url.Action("RemoveItem","Pay",new {ID=item.ID})">Ürünü Listeden Kaldır</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="textAlign">
+            <label style="color: #7DC2A6;">Sepette Ürün Bulunamadı</label>
+        </div>
+    }
+    <div class="tamamla textAlign">
+        @if (ViewBag.totalFiyat != null)
+        {
+            @ViewBag.totalFiyat<label>&nbsp;TL</label>
+        }
+        <br />
+        <br />
+        @if (Model != null)
+        {
+            if (Session["userSession"] != null)
+            {
+                <a class="ODE ODEGradient" href="@Url.Action("Pay","Pay")">ÖDE</a>
+            }
+            else
+            {
+                <a style="color:#7DC2A6;cursor:pointer;" href="@Url.Action("Index","UserLogin")">
+                    <label>Lütfen Giriş Yapınız </label>
+                </a>
+                <br />
+                <small>Sepetiniz korunacaktır</small>
+            }
+        }
+        <br />
+        <br />
+    </div>
+</div>
+

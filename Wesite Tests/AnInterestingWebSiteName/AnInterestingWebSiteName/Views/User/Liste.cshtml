@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AnInterestingWebSiteName.Models.Kullanici>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+}
+
+<head>
+    <link href="~/Assets/Css/UserListCss.css" rel="stylesheet" />
+</head>
+
+
+<div class="tasiyici">
+
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Index","User",new {ID =item.ID})">
+        <div class="item">
+            <img class="userImage" src="~/Fotograflar/KullaniciFotograflari/@item.ProfilResmi" alt="Kullanıcı Fotoğrafı" />
+            <label class="ad">@item.Ad</label>
+        </div>
+        </a>
+    }
+
+</div>

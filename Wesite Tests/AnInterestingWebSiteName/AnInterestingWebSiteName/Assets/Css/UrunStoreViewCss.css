@@ -1,0 +1,307 @@
+﻿.urunTasiyici {
+    /*border: 1px solid #5c5c5c;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 942px;
+}
+
+.topDiv {
+    /*border: 1px solid #5c5c5c;*/
+    min-height: 444px;
+    width: 940px;
+}
+
+.oyunFotograflari {
+    border: 1px solid #293545;
+    min-height: 338px;
+    width: 638px;
+    float: left;
+}
+
+.oyunFotografi {
+    height: 330px;
+    width: 632px;
+    padding: 0px 3px 3px 3px;
+    background-color: #293645;
+    opacity: 1;
+}
+
+.oyunFotograflariPreview {
+    border: 1px solid #293545;
+    float: right;
+    width: 634px;
+    height: 102px;
+    background-color: #293645;
+}
+
+.oyunFotograflariPreviewImage {
+    height: 102px;
+    width: 158.5px;
+}
+
+.amogi {
+    height: 444px;
+    width: 638px;
+    float: left;
+}
+
+.tableOyunView {
+    float: left;
+    position: absolute;
+}
+
+    .tableOyunView tr th {
+    }
+
+    .tableOyunView tr td {
+        padding-bottom: 332px;
+        visibility: hidden;
+        background-color: #293545;
+        height: 20px;
+        color: #8EB7ED;
+        /*padding:0px 20px;*/
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+    .tableOyunView tbody {
+    }
+
+    .tableOyunView tr:hover td {
+        visibility: visible;
+    }
+
+
+    .tableOyunView:hover td {
+        visibility: visible;
+    }
+
+.oyunBilgisi {
+    width: 270px !important;
+    border: 1px solid #293545;
+    padding: 10px 10px 10px 10px;
+    background-color: #293545;
+    /*border-bottom: 1px solid #8EB7ED;*/
+    height: 422px;
+    float: right;
+}
+
+.oyunBilgisiFotografi {
+    width: 280px;
+    height: 150px;
+}
+
+.oyunDetaylari {
+    color: #8EB7ED;
+}
+
+.oyunDetaylariItem {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.oyunAltDiv {
+    width: 100%;
+    /*border: 1px solid #5c5c5c5c;*/
+    margin-top: 30px;
+}
+
+.oyunAltDivFiyat {
+    margin: 10px;
+    font-size: 30pt;
+    padding: 10px;
+    color: #8EB7ED;
+    background-color: #293545;
+}
+
+.satinAlinDivIndirim {
+    border: 2px solid black;
+    padding: 3px;
+    background-color: #293545;
+    font-size: 20pt;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 530px;
+    border-radius: 5px;
+    position: absolute;
+    float: right;
+}
+
+.satinAlinDivIndirimFiyat {
+    background-color: #4c6b22;
+    padding: 10px 7px 4px 7px;
+    height: 38px;
+    color: #BEEE11;
+    text-align: center;
+    float: left;
+}
+
+.indirimsizFiyat {
+    font-size: 15pt;
+    text-decoration: dashed;
+    padding-left: 3px;
+    color: #5c5c5c;
+}
+
+.overLine {
+    position: absolute;
+    color: #1e1e1ecc;
+    margin-top: 12px;
+    margin-left: 5px;
+    width: 30px !important;
+    max-width: 20px;
+    min-width: 20px;
+}
+
+.indirimliFiyatUrun {
+    color: #BEEE11;
+    padding-top: 7px;
+    padding-left: 3px;
+    font-size: 15pt;
+}
+
+.paraBirimiIndirimsiz {
+    background-color: #293645;
+    border: 1px solid #293645;
+    z-index: 999;
+    padding-left: 40px;
+    font-size: 33pt;
+    float: right;
+    border-radius: 3px;
+}
+
+.satinAlinDivIndirimsiz0 {
+    border: 2px solid black;
+    min-width: 80px;
+    padding: 3px 3px 3px 3px;
+    background-color: #293545;
+    font-size: 20pt;
+    margin-top: -10px;
+    margin-left: 630px;
+    border-radius: 5px;
+    position: absolute;
+    float: right;
+}
+
+.indirimsizFiyatUrun0 {
+    float: left;
+    width: fit-content;
+    height: fit-content;
+}
+
+.satinAlinDivIndirimsizFiyat0 {
+    width: fit-content;
+    height: fit-content;
+}
+
+.indirimsizParaBirimi {
+    float: right;
+}
+
+.bedava {
+    padding: 2px;
+    border-radius: 3px;
+    border: 1px solid #4c6b22;
+    color: #BEEE11;
+    background-color: #4c6b22;
+}
+
+.satinAlGradient {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#9ca81c+0,536836+100 */
+    background: rgb(156,168,28); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(156,168,28,1) 0%, rgba(83,104,54,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(156,168,28,1) 0%,rgba(83,104,54,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(156,168,28,1) 0%,rgba(83,104,54,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9ca81c', endColorstr='#536836',GradientType=1 ); /* IE6-9 */
+}
+
+.satinAlBedava {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 18px 5px;
+    margin-top: -10px;
+    margin-left: 750px;
+    font-size: 15pt;
+    position: absolute;
+    color: #BEEE11;
+}
+
+.satinAlPara {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 18px 5px;
+    margin-top: -10px;
+    margin-left: 750px;
+    font-size: 15pt;
+    position: absolute;
+    color: #BEEE11
+}
+
+.altPart {
+    margin-top: 70px;
+}
+
+.aciklama {
+}
+
+.aciklama1 {
+    padding: 5px 20px 40px 0px;
+}
+
+.solPart {
+    padding: 5px 20px 40px 15px;
+    color: #b3cdef;
+    background-color: #2935455e;
+    width: 60%;
+    float: left;
+}
+
+.sagPart {
+    color: #8EB7ED;
+    padding: 20px;
+    width: 32%;
+    float: right;
+}
+
+.yayinciBilgileri {
+    padding: 10px;
+    background-color: #293545;
+}
+
+.yapimciBilgileri {
+    padding: 10px;
+}
+
+.ayniFirmaninOyunlari {
+    border: 1px solid #5c5c5c;
+}
+
+.ayniFirmaninOyunlariItems {
+    background-color: #293545;
+    padding: 5px;
+    width: 160px;
+    height: 100px;
+}
+
+    .ayniFirmaninOyunlariItems:hover {
+        background-color: #202935;
+    }
+
+    .ayniFirmaninOyunlariItems img {
+        height: 60px;
+        width: 160px;
+    }
+
+.ayniFirmaninOyunlariItemsInfo {
+}
+
+.ayniFirmaninOyunlariItemsInfoAd {
+    float: left;
+    color: #8EB7ED;
+}
