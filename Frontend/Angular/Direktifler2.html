@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives2</title>
+
+    <script src="Assets/angular-1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="uygulamam">
+
+    <ul>
+        <li>E-> Eleman Adı</li>
+        <li>A-> Özellik</li>
+        <li>C-> Sınıf</li>
+        <li>M-> Yorum</li>
+    </ul>
+
+
+    <niyazi>
+    </niyazi>
+
+    <div niyazi></div>
+
+    <div class="niyazi"></div>
+
+
+    
+    <!--
+         directive:niyazi 
+    -->
+
+    <script>
+        var app = angular.module("uygulamam", []);
+
+        app.directive("niyazi", function () {
+            return {
+                restrict: "M",
+                replace: true,
+                template: "<h1>Amogus</h1>"
+            };
+        })
+
+    </script>
+
+
+
+</body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model</title>
+
+    <script src="Assets/angular-1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <h3>ng-model</h3>
+    <div ng-app="uygulamam" ng-controller="kontrolum">
+        Isim = <input ng-model="isim" type="text" name="" id="">
+        <h1>Girilen Veri = {{isim}}</h1>
+        
+        
+    </div>
+
+    <script>
+        var app = angular.module("uygulamam", []);
+
+        app.controller('kontrolum', function ($scope) {
+
+            $scope.isim = "ssssssssssa";
+
+
+        })
+
+
+    </script>
+
+</body>

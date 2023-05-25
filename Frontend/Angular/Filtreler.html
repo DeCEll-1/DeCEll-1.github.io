@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives</title>
+
+    <script src="Assets/angular-1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="../Bootstrap/assets/bootstrap-5.3.0/css/bootstrap.min.css">
+    <script src="../Bootstrap/assets/bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <h1>Expressions</h1>
+
+    <!-- <div ng-app="uygulamam2" ng-controller="memleketlerCTRL">
+
+        <ul>
+            <li ng-repeat="x in memleketler | orderBy: 'memleket'">
+                {{x.isim + " " + x.memleket}}
+            </li>
+        </ul>
+
+
+    </div> -->
+
+
+    <!-- <div ng-app="uygulama3" ng-controller="fiyatctrl">
+
+        <ul>
+            <li ng-repeat="x in fiyatlar">
+                {{x.urun}} {{x.fiyat|currency:"₺"}}
+            </li>
+        </ul>
+
+
+    </div> -->
+
+
+    <!-- <div ng-app="uygulamam4" ng-controller="memleketlerctrl">
+
+        <input type="text" ng-model="test">
+
+        <table>
+
+            <tr>
+                <th>Isim</th>
+                <th>Memleket</th>
+            </tr>
+            <tr ng-repeat="x in memleketler | filter:test">
+
+                <td>{{x.isim}}</td>
+                <td>{{x.memleket}}</td>
+
+            </tr>
+
+        </table>
+
+    </div> -->
+
+    <div class="container">
+        <div ng-app="uygulamam5" ng-controller="memleketlerctrl">
+
+
+            <table class="table table-bordered table-striped">
+
+                <thead>
+                    <tr>
+                        <th ng-click="orderByMe('isim')">Isim</th>
+                        <th ng-click="orderByMe('memleket')">Memleket</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in memleketler | orderBy:siralamam">
+                        <td>{{x.isim}}</td>
+                        <td>{{x.memleket}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    <script>
+        angular.module("uygulamam", []).controller("personel", function ($scope) {
+
+            $scope.isim = "Niyazi",
+                $scope.soyisim = "Gunada"
+
+        });
+
+        angular.module("uygulamam2", []).controller("memleketlerCTRL", function ($scope) {
+
+            $scope.memleketler = [
+                { isim: 's', memleket: 'a' },
+                { isim: 'w', memleket: 's' },
+                { isim: 'z', memleket: 'd' },
+                { isim: 'c', memleket: 'f' },
+                { isim: 'b', memleket: 'g' },
+                { isim: 'f', memleket: 'h' },
+                { isim: 'e', memleket: 'j' },
+                { isim: 's', memleket: 'k' },
+                { isim: 'z', memleket: 'n' },
+                { isim: 'v', memleket: 'v' },
+                { isim: 'n', memleket: 'c' },
+                { isim: 'h', memleket: 'x' },
+                { isim: 'y', memleket: 'z' },
+                { isim: 'ö', memleket: 'n' },
+                { isim: 'n', memleket: 'w' },
+            ]
+
+
+
+        });
+
+
+
+
+    </script>
+
+    <script>
+
+        angular.module("uygulama3", []).controller("fiyatctrl", function ($scope) {
+            $scope.fiyatlar = [
+                { urun: "domates", fiyat: 15.5 },
+                { urun: "patates", fiyat: 10 },
+                { urun: "patlıcan", fiyat: 16.5 },
+                { urun: "zigara", fiyat: 38.5 }
+            ];
+        })
+
+    </script>
+
+    <script>
+        angular.module("uygulamam4", []).controller("memleketlerctrl", function ($scope) {
+
+            $scope.memleketler = [
+                { isim: 's', memleket: 'a' },
+                { isim: 'w', memleket: 's' },
+                { isim: 'z', memleket: 'd' },
+                { isim: 'c', memleket: 'f' },
+                { isim: 'b', memleket: 'g' },
+                { isim: 'f', memleket: 'h' },
+                { isim: 'e', memleket: 'j' },
+                { isim: 's', memleket: 'k' },
+                { isim: 'z', memleket: 'n' },
+                { isim: 'v', memleket: 'v' },
+                { isim: 'n', memleket: 'c' },
+                { isim: 'h', memleket: 'x' },
+                { isim: 'y', memleket: 'z' },
+                { isim: 'ö', memleket: 'n' },
+                { isim: 'n', memleket: 'w' },
+            ]
+
+
+
+        });
+    </script>
+
+
+    <script>
+        angular.module("uygulamam5", []).controller("memleketlerctrl", function ($scope) {
+
+            $scope.memleketler = [
+                { isim: 's', memleket: 'a' },
+                { isim: 'w', memleket: 's' },
+                { isim: 'z', memleket: 'd' },
+                { isim: 'c', memleket: 'f' },
+                { isim: 'b', memleket: 'g' },
+                { isim: 'f', memleket: 'h' },
+                { isim: 'e', memleket: 'j' },
+                { isim: 's', memleket: 'k' },
+                { isim: 'z', memleket: 'n' },
+                { isim: 'v', memleket: 'v' },
+                { isim: 'n', memleket: 'c' },
+                { isim: 'h', memleket: 'x' },
+                { isim: 'y', memleket: 'z' },
+                { isim: 'ö', memleket: 'n' },
+                { isim: 'n', memleket: 'w' },
+            ];
+
+            $scope.orderByMe = function (x) {
+                $scope.siralamam = x;
+            }
+
+
+
+
+        });
+    </script>
+
+</body>
