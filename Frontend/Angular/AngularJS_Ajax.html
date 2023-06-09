@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives</title>
+
+    <script src="Assets/angular-1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="../Bootstrap/assets/bootstrap-5.3.0/css/bootstrap.min.css">
+    <script src="../Bootstrap/assets/bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="uygulamam1" ng-controller="kontrolum">
+
+        <p>Mesaj : </p>
+        <h1>{{merhabaMesaj}}</h1>
+
+
+
+        <script>
+            var app = angular.module('uygulamam1', {})
+
+            app.controller('kontrolum', function ($scope, $http) {
+
+                $http({
+                    method: "GET",
+                    url: "Merhaba.html"
+                }).then(function success(response) {
+
+                    $scope.merhabaMesaj = response.data;
+
+                }, function error(response) {
+
+                    $scope.merhabaMesaj = response.statusText;
+
+                })
+
+            });
+
+        </script>
+
+    </div>
+
+</body>
