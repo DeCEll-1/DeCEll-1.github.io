@@ -1,0 +1,18 @@
+@import "menu";
+
+$murtaza: 10pt;
+
+$renk-1: orangered;
+
+p {
+    font-size: $murtaza;
+
+    color: $renk-1;
+}
+
+ul li {
+
+    font-size: $murtaza;
+    color: $renk-1;
+
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Elements</title>
+    <link rel="stylesheet" href="../Bootstrap/assets/bootstrap-5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Assets/fontawesome/css/all.min.css">
+
+    <style>
+        .app::before {
+            content: "Selamlar";
+            display: inline;
+
+            background-color: red;
+
+            color: white;
+
+            margin: 0 10px;
+
+            padding: 5px 20px;
+
+            font-weight: 900;
+        }
+
+        .app::after {
+            content: "Selamlar";
+            display: inline-block;
+
+            background-color: red;
+
+            color: white;
+
+            margin: 0 10px;
+
+            padding: 5px 20px;
+
+            font-weight: 900;
+        }
+
+        .app::first-line {
+            background-color: :chartreuse;
+            font-size: 20pt;
+            padding: 20px;
+        }
+
+        .application::first-letter {
+            color: red;
+            font-size: 50pt;
+            padding: 20px;
+            font-family: "Comic Sans MS";
+        }
+
+        .application::selection {
+            background-color: aqua;
+        }
+
+        .iletisim::before {
+            content: "\f007";
+            color: gray;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>::after, ::before pseudo kullanımı</h1>
+
+        <code>::before</code> ve <code>::after</code> pseudo elementler ile birçok iş ve tasarım ortaya çıkarabilirsiniz
+
+        <p class="alert alert-info mt-2 mb-2">
+            <code>::before</code> ve <code>::after</code> elementlerini kullanabilmek için <code>content:""</code> css
+            kodu
+            MUTLAKA yazmanız gerekir.
+        </p>
+
+
+        <div>
+            <p class="app">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam molestiae veritatis
+                corrupti facilis
+                cupiditate, placeat delectus natus earum tempora voluptas blanditiis! Dolorem, quisquam! Deleniti
+                aliquid dicta accusantium, veniam sed expedita!</p>
+            <p class="application">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam molestiae veritatis
+                corrupti facilis
+                cupiditate, placeat delectus natus earum tempora voluptas blanditiis! Dolorem, quisquam! Deleniti
+                aliquid dicta accusantium, veniam sed expedita!</p>
+
+            <p class="iletisim">
+                XXX XXX XX XX
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="../Bootstrap/assets/bootstrap-5.3.0/js/bootstrap.min.js"></script>
+    <script src="../Bootstrap/assets/bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="Assets/fontawesome/js/all.min.js"></script>
+
+</body>
+
+</html>
