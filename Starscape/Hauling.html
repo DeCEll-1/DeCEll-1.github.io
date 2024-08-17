@@ -19,11 +19,31 @@
 
 
     <style>
+        /* @font-face {
+            font-family: comicSansMS;
+            src: url('Assets/Comic Sans MS.ttf');
+        } */
+
         body {
             /* https://heropatterns.com/ this thing is :fire: */
             background-color: #363252;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23292545' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             height: 7000px;
+        }
+
+        .comicSans {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+        }
+
+        .myBalls {
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 50px;
+            background-color: white;
+            color: black;
+            width: 100px;
+            padding: 2px;
+            height: 30px;
         }
     </style>
 
@@ -50,8 +70,14 @@
 </head>
 
 <body>
+    <button id="btn_myBalls" class="myBalls" type="button">
+        <div style="font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+            Change font
+        </div>
+    </button>
 
-    <div class="container mt-4 text-light">
+
+    <div id="div_test" class="container mt-4 text-light">
         <div class="row">
             <div class="col-lg-12 text-center font-monospace" style="font-size: xx-large;">
 
@@ -101,13 +127,24 @@
                         <hr>
                         <li>
                             <b>Look for a secure WH to enter wild.</b> <br><br>
-                            Even though you can make the long route to the inner
-                            wilds, it not only is extremely
-                            dangerous (especially if your in a hauler ship), but it is also quite slow, and you may run
-                            into players at the inner
-                            wilds. Finding a secure WH is a lot faster, and can allow you to make trips to and from the
-                            wh/fo route easily, making
-                            it especially useful for galaxy haulers.
+                            Use wormholes to enter wild. whilst it may seem tempting to just warp to the wilds normally
+                            (especially if you cant find
+                            a wormhole to the wilds), there are 3 main reasons why you shouldn't. the first is that it
+                            is simply quite dangerous to
+                            warp the wilds, especially when you are at the outer unsecure systems and inner wilds.
+                            pirates, whilst rare, are still a
+                            threat that you should remember. reason two is that it can be quite tedious and slow to go
+                            from citadel, into the wilds,
+                            find a route, and then go all the way back, get a hauler, go all the way back again, haul,
+                            and do another trip back to
+                            the galaxy. it is way faster to simply use a wormhole and effectively skip all the
+                            travelling involved. reason three is
+                            that wormholes provide an easy gateway for smaller trips, and also can be used for other
+                            expeditions (such as mining and
+                            pve expeditions). additionally, wormholes are one of the safest places to be in wilds, since
+                            they grant invincibility as
+                            soon as you enter them, even if your ship is not inside the wormhole. this makes them
+                            invaluable for wild campers.
                         </li>
 
                         <br>
@@ -119,7 +156,8 @@
                                 <div class="col-lg-6 float-start">
                                     <img class="w-100" src="Assets/Spice.png" alt="Spice">
                                 </div>
-                                <div class="col-lg-6 float-end">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-5 float-end text-center">
 
                                     Once in wild, look for a WH that leads to the opposite spice region. <br><br> As
                                     seen in
@@ -144,14 +182,32 @@
 
                         <li class="col-lg-12 float-none">
                             <div>
-                                After you find a WH, look for FO's in every system 1 warp away, then 2, then so on.
-                                Doing
-                                this will make routes that you
-                                do find a lot shorter than
-                                simply spurting into a random direction. This also allows you to cherrypick wh/fo routes
-                                of
-                                certain lengths, so that you
-                                dont end up with unnecessarily long routes.
+                                make sure to check every system 1 warp away, then 2, and so on from a potential route.
+                                when your scouting, you may run
+                                into a wormhole that seems optimal, but can't find any FOs nearby. this occurs fairly
+                                commonly, and can be quite
+                                annoying. however, an easy way to counteract it is to check every system 1 warp away
+                                from the wormhole, then 2, and so
+                                on until you find an FO. this prevents the route from being overly long, as has the
+                                added benefit of allowing you to
+                                cherrypick routes of certain lengths.
+                            </div>
+                        </li>
+
+                        <hr class="col-lg-12 float-none">
+                        <br class="col-lg-12 float-none">
+
+                        <li class="col-lg-12 float-none">
+                            <div>
+                                LOG YOUR FINDINGS. i know, i know. it can be annoying to have to find an anomaly, and
+                                then write it down, but it makes
+                                your life (and the lives of others using your route) so much easier. now, not every
+                                anomaly is worth logging, of course.
+                                Personally, besides wormholes and FO's (which you should be logging), the only other
+                                worthwhile anomalies to log are VX
+                                and AN anomalies, which can yield a lot of money. Other anomalies, such as MTs and ALs,
+                                whilst profitable, are too
+                                common to be worth going into wilds for.
                             </div>
                         </li>
 
@@ -210,18 +266,94 @@
                         hauling ships, from best to worst
                     <ul style="font-size: x-large; text-align: left;">
                         <li>
-                            Shroud w/ double WFA (&lt;3 warp routes)
+                            ok basically u want to use either a <u>shroud</u> or <u>galaxy</u>, as these are the two
+                            best
+                            hauling ships (if you dont have
+                            these/cant afford them i'll say what else is alright). anyway, I see a lot of people asking
+                            which they should use, and
+                            how this affects rates. BASICALLY, a shroud with double warp amplifier is slightly better
+                            than galaxy, provided that you
+                            leave little to no gaps between warps, which when hauling with a single account is easy.
+                            also, the shroud is
+                            significantly faster than the galaxy, which is good for getting to cargo stations on FO's
+                            faster and for entering
+                            wormholes. however, if you are either A. on a route longer than 4 warps or B. multiboxing
+                            (hauling on multiple accounts
+                            at once), then you should basically always use galaxy. the shroud's benefits mean nothing if
+                            each account may be waiting
+                            between each warp, which is very prevalent in multiboxing (especially when it's over 3-4
+                            accounts).
                         </li>
+                        <br>
                         <li>
-                            Galaxy, Shroud w/ Double WFA (&lt;3 warp routes)
+                            now, what if your POOR and cant afford either? well, welcome to the zubron. the zubron is
+                            like one fifth the price of
+                            the shroud and galaxy, yet it functions almost as well as them. plop 2 warp amplifiers on
+                            it, and it can actually
+                            outperform the galaxy (sometimes). astero and veil, the two other intermediate haulers, are
+                            fine, but are just not as
+                            good as the zubron in speed or hauling capacity.
                         </li>
+                        <br>
                         <li>
-                            Zubron w/ WFA, Veil/Astero (prolly just use a zubron instead of these)
+                            but what if your B R O K E and cant even afford a corvette hauler? well, don't fret, since
+                            you can use a bison (use this
+                            over the rhino, just trust me on this). however, do note that if your hauling on a
+                            semi-decent hauling route, that you
+                            should basically switch to a zubron as soon as you hit 40k or so, since the bison is still
+                            painfully slow.
+                        </li>
+                    </ul>
+                    </p>
+
+                </div>
+
+                <hr>
+
+                <div class="ms-5 mt-4 mb-4">
+
+                    <p style="font-size: xx-large;">What do those mean?</p>
+
+                    <p style="font-size: x-large; text-align: left;">
+
+                    <ul style="font-size: x-large; text-align: left;">
+                        <li>
+                            Optimal - the most asked one is most definitely "what does 'optimal' mean?". For a route to
+                            be "optimal", it must go
+                            from an FO on one side of the galaxy, and head to an FO on the exact opposite side. In the
+                            star menu, you can turn on
+                            spice colouring, which shows the six types of spice - blue, yellow, orange, pink, red, and
+                            green. As you can see, they
+                            are split evenly among the galaxy, with there being 3 on each side. A route that is optimal
+                            will go from a spice sector
+                            to the spice sector on the other side. for example, an optimal route with a blue FO will
+                            connect to an FO on the other
+                            side, with pink spice.
+                        </li>
+                        <br>
+                        <li>
+                            'x' warp - This term refers to how many system warps a route takes to haul once. for this,
+                            you do not include warps
+                            inside a system, such as warping to a wormhole or FO inside a system. The lower warp a
+                            hauling route is, the faster it
+                            is, with the best possible hauling route having 0 warps (no system warps whatsoever).
+                        </li>
+                        <br>
+                        <li>
+                            Stable, transient, and decaying - these terms refer to how long a wormhole has left until it
+                            collapses. These are fairly
+                            self explanatory - the majority of wormholes spawn as transient, meaning that they collapse
+                            within 48 hours of spawning.
+                            Stable wormholes are rare wormholes that can last 2 weeks before collapsing, and are usually
+                            very sought after for their
+                            longevity. decaying wormholes are wormholes that have under 6 hours left. Note that a
+                            wormhole can spawn as a stable or
+                            transient wormhole, but NOT a decaying wormhole.
                         </li>
                     </ul>
 
-                    anything below is trash (but if your poor, a bison is fine)
                     </p>
+
 
                 </div>
 
@@ -259,6 +391,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        var bool = true;
+
+        $(document).ready(function () {
+
+            $("#btn_myBalls").click(function () {
+
+                if ($("#div_test").hasClass("comicSans")) {
+                    $("*").removeClass("comicSans");
+                } else {
+                    $("*").addClass("comicSans");
+                }
+
+            });
+        });
+
+    </script>
 
 
 </body>
