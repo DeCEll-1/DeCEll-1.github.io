@@ -55,7 +55,7 @@
         }
     </style>
 
-<meta property="og:image" content="/Frontend/JS/Images/CuteFace.png">
+    <meta property="og:image" content="/Frontend/JS/Images/CuteFace.png">
 
 
 </head>
@@ -184,33 +184,25 @@
         var colorB = 0;
 
         function Rainbow() {
-            var a = 0;
-
             var b = 1;
 
             if (colorR == 255 && !(colorG >= 255) && colorB == 0) {
                 colorG = colorG + b;
-                a = 1;
             }
             else if (colorR <= 255 && colorR != 0 && colorG == 255 && colorB == 0) {
                 colorR = colorR - b;
-                a = 2;
             }
             else if (colorR <= 255 && colorG == 255 && colorB >= 0 && colorB < 255) {
                 colorB = colorB + b;
-                a = 3;
             }
             if (colorR == 0 && colorG <= 255 && colorG > 0 && colorB == 255) {
                 colorG = colorG - b;
-                a = 4;
             }
             else if (colorR < 255 && colorG == 0 && colorB == 255) {
                 colorR = colorR + b;
-                a = 5;
             }
             else if (colorR == 255 && colorG == 0 && colorB > 0) {
                 colorB = colorB - b;
-                a = 6;
             }
 
             if (nodeListtxt = document.getElementsByClassName("Rainbowtxt") != null) {
