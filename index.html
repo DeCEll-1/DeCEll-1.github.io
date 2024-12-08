@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
+
+    <canvas id="Shaders/test.frag" width="400" height="300">
+        Your browser does not support HTML5
+    </canvas>
+
+    <i><b>balls</b></i>
+    <div id="holder"></div>
+
+    <script type="text/javascript" src="shaderManager.js"></script>
+
+    <script>
+        var tid = setInterval(function () {
+            if (document.readyState !== 'complete') return;
+            clearInterval(tid);
+            main();
+        }, 100);
+
+        function main() {
+            inputFileContentToControl(window.location.origin + "/", "file.html", "holder");
+
+        }
+
+    </script>
 </body>
 
 </html>
