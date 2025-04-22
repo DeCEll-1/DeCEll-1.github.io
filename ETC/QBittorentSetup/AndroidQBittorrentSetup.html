@@ -1,0 +1,230 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setuping QBittorrent</title>
+    <style>
+        /*from perfectmotherfuckingwebsite*/
+        body {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 10px;
+            font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            color: #444
+        }
+
+        h1,
+        h3,
+        h3 {
+            line-height: 1.2
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #c9d1d9;
+                background: #0d1117
+            }
+
+            a:link {
+                color: #58a6ff
+            }
+
+            a:visited {
+                color: #8e96f0
+            }
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        code {
+            background-color: #090a0e;
+            color: #d63384;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <h2>Step-by-Step Qbittorrent setup on Termux X11</h2>
+
+    <div>
+        <h3>1. Download latest (non pre relase) Termux from <a
+                href="https://github.com/termux/termux-app/releases/">Github</a></h3>
+        <img src="Assets/DownloadTermux.jpeg" alt="Download Termux from GitHub">
+    </div>
+
+    <div>
+        <h3>2. Download latest (non pre relase) Termux X11 from <a
+                href="https://github.com/termux/termux-x11/releases/">GitHub</a></h3>
+        <img src="Assets/DownloadTermuxX11.jpeg" alt="Download Termux X11 from GitHub">
+    </div>
+
+    <div>
+        <h3>3. Install X11 Repo, X11 Nightly and XFCE</h3>
+        <p>Install Termux, open it and run
+            <code>pkg install x11-repo</code>
+        </p>
+        <p>If you see a Y/n question just press enter</p>
+        <img src="Assets/InstallX11-Repo.jpeg" alt="Install X11 Repo">
+    </div>
+
+    <div>
+        Run <code>pkg install termux-x11-nightly</code>
+        <img src="Assets/InstallX11-Nightly.jpeg" alt="Install X11 Nightly">
+    </div>
+
+    <div>
+        Run <code>pkg install xfce</code>
+        <img src="Assets/InstalXFCE.jpeg" alt="Install XFCE">
+    </div>
+
+    <div>
+        <h3 id="step4">4. Start X11 with XFCE Session</h3>
+        <p>Run
+            <code>termux-x11 :0 -xstartup "dbus-launch --exit-with-session xfce4-session" </code>
+            to start x11
+        </p>
+        <img src="Assets/StartX11.jpeg" alt="Start X11 with XFCE">
+    </div>
+
+    <div>
+        <h4>5. Install and open X11 and open terminal</h4>
+        <h3>6. Run <code>pkg update</code></h3>
+        <p>This will update the list of apps we can download for termux</p>
+        <img src="Assets/pkgUpdate.jpeg" alt="pkg update">
+    </div>
+
+    <div>
+        <h3>7. Install qBittorrent</h3>
+        Run <code>pkg install qbittorrent</code>
+        <img src="Assets/pkgQbittorrent.jpeg" alt="Install qBittorrent">
+        <p>You should see it under Applications > Internet now</p>
+        <img src="Assets/QbittorrentCheck.jpeg" alt="Check">
+    </div>
+
+    <div>
+        <h3>8. Install FTP Server from App Store</h3>
+        <p>This will help us transfer files from our computer to the android device</p>
+        <img src="Assets/FTPServer.jpeg" alt="Install FTP Server App">
+    </div>
+
+    <div>
+        <h3>9. Setting Termux as FTP Root Folder</h3>
+        <p>Open the FTP server app > Open settings > select "Root Folder" (if you see a list of selections press
+            "specific folder") > Open burger menu from top left > Select termux</p>
+        <img src="Assets/SelectTermux.jpeg" alt="Select Termux Folder for FTP">
+    </div>
+
+    <div>
+        <h3>10. Download <a href="https://filezilla-project.org/download.php?platform=win64">FileZilla</a> to your
+            computer</h3>
+        <p>FileZilla will allow us to send files to the FTP server thats running on our device</p>
+        <img src="Assets/FileZilla.png" alt="Download FileZilla">
+    </div>
+
+    <div>
+        <h3>11. Connect to FTP Server Using FileZilla</h3>
+        <p>After downloading FileZilla, open the FTP Server app from the android device, and start the server</p>
+        <p>To connect to the ftp server using FileZilla:</p>
+        <ul>
+            <li>Open Site Manager</li>
+            <li> <img src="Assets/OpenSiteManager.png" alt="Open Site Manager"></li>
+            <li>Click New site</li>
+            <li> <img src="Assets/NewSite.png" alt="Select New Site"></li>
+            <li>fill out Host, Port, User and Password from the right side and click Connect</li>
+        </ul>
+        <p>If you successfully connected it should look something like this:</p>
+        <img src="Assets/SuccessfullConnection.png" alt="Connect to FTP via FileZilla">
+
+    </div>
+
+    <div>
+        <h3>12. Send Settings from PC to Termux</h3>
+        <p>To "import" settings to termux from your pc, we transfer the QBittorrent folder from</p>
+        <code>C:\Users\&lt;user&gt;\AppData\Roaming\qBittorrent</code>
+        <p>To /.config/qBittorrent with FileZilla</p>
+        <ul>
+            <li>Double click .config/qBittorrent folders to open the qBittorrent settings folder from filezilla in the
+                window
+                at middle right</li>
+            <li> <img src="Assets/OpenQBittorrentSettings.png" alt="Open Settings folder"></li>
+            <li>Afterwards CTRL + A and press DEL to delete all the pre made config files under
+                <code>/.config/qBittorrent</code> in the lower window
+            </li>
+            <li> <img src="Assets/DeletePremadeConfigs.png" alt="Delete pre made configs"></li>
+            <li>
+                Now all we need to do is drag and drop our settings that we got from
+                <code>C:\Users\&lt;user&gt;\AppData\Roaming\qBittorrent</code> into the folder
+            </li>
+            <li> <img src="Assets/DragAndDrop.png" alt="Drag and drop"></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>13. Send Torrents to Termux</h3>
+        <p>Our settings are done, we just need to transfer our .torrent files and folders</p>
+        <ul>
+            <li>Firstly, open desktop from FileZilla</li>
+            <li><img src="Assets/OpenDesktop.png" alt="Open desktop"></li>
+            <li>Afterwards create a folder named <code>qBittorrent</code> on desktop (or some other name if you want to)
+            </li>
+            <li><img src="Assets/CreateDirectoryAndEnter.png" alt="Create directory"></li>
+            <li>Now you can drag and drop .torrent files and their source folders, you can create sub directories as
+                well if you want</li>
+        </ul>
+
+    </div>
+
+    <div>
+        <h3>14. Run Torrents in qBittorrent</h3>
+        <p>This step is practically same as running torrents on desktop, open the file explorer in termux11 > go to the
+            directory you put the .torrent files in > double click them
+        </p>
+    </div>
+
+    <div>
+        <h2>Done!</h2>
+        <p>You now have a complete setup running qBittorrent on an android device!</p>
+        <p>
+            Notes:
+        <ul>
+            <li>Qbittorrent will continue to run as long as Termux is not closed and the device is on</li>
+            <li>If you want to close Termux X11 open Termux and press CTRL + C, do <a href="#step4">step 4</a> again if
+                you want to restart
+                it</li>
+        </ul>
+        </p>
+    </div>
+
+    <div>
+        <h3>Referances:</h3>
+        <ul>
+            <li><a href="https://ivonblog.com/en-us/posts/termux-x11/">ivonblog.com</a> For X11 setup</li>
+            <li><a href="https://perfectmotherfuckingwebsite.com/">perfectmotherfuckingwebsite.com</a> For the website
+                referance</li>
+            <li><a href="https://github.com/termux">Termux</a> For making, Termux</li>
+            <li><a href="https://filezilla-project.org/">FileZilla</a> For making, FileZilla</li>
+            <li>Medha Apps For making the FTP server for android</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
